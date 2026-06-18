@@ -11,10 +11,10 @@ async function boot() {
   try {
     const st = await api("/api/state");
     renderTasks(st.tasks);
-    renderHabits(st.habits, []);
+    renderHabits(st.habits, st.habits_done || []);
     renderChips(st.goals);
     $("#status").classList.add("ok");
-    $("#status-text").textContent = "modèle prêt";
+    $("#status-text").textContent = st.real_data ? "tes vraies données" : "journée type";
   } catch (e) {
     $("#status-text").textContent = "backend hors ligne";
   }
@@ -34,9 +34,10 @@ function renderChips(goals) {
 }
 
 function renderTasks(tasks) {
+  if (!tasks.length) { $("#tasks").innerHTML = '<li class="muted small">Aucune tâche (édite mydata/today.yaml)</li>'; return; }
   $("#tasks").innerHTML = tasks.map(t => `
-    <li><span class="check"></span>
-      <span>Tâche</span>
+    <li><span class="check ${t.done ? 'on' : ''}"></span>
+      <span>${t.title || 'Tâche'}</span>
       <span class="badge ${t.priority === 'haute' ? 'high' : ''}">${t.priority}</span>
     </li>`).join("");
 }
@@ -93,8 +94,8 @@ function renderPlan(res) {
       <div class="n">${s.slot}</div>
       <div class="act">${s.label}</div>
       <div class="meta">
+        ${(s.completed || []).map(c => `<span class="tag h">✅ ${c}</span>`).join("")}
         ${s.habits_done.map(h => `<span class="tag h">${frHabit(h)}</span>`).join("")}
-        ${s.high_done ? `<span class="tag">${s.high_done} tâche(s)</span>` : ""}
         <div class="ebar"><i style="width:${Math.round(s.energy * 100)}%"></i></div>
       </div>
     </div>`).join("");

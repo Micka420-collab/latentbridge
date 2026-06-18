@@ -1,49 +1,57 @@
-# Brancher Arbor (RUC-NLPIR/Arbor) sur LatentBridge
+# Brancher Arbor (RUC-NLPIR/Arbor) — recherche d'archi en continu
 
-Arbor = agent de recherche autonome (Coordinator + Executor, hypothesis tree,
-chaque expérience dans un git worktree isolé, éval sur held-out). Notre
-`loop/random_search.py` fait déjà la même boucle en plus simple ; Arbor est
-l'**upgrade** : il *raisonne* sur les résultats au lieu d'échantillonner au hasard.
+Arbor = agent de recherche autonome (Coordinator + Executor, *hypothesis tree*,
+chaque expérience dans un **git worktree** isolé, éval sur held-out). C'est
+l'upgrade « qui raisonne » de notre `loop/random_search.py`.
 
-## Le contrat (déjà respecté par ce repo)
+## Déjà préparé pour toi sur ce poste
 
-Arbor a juste besoin de : **une commande qui tourne + un nombre à maximiser**.
+- ✅ Repo Arbor cloné : `external/arbor/`
+- ✅ Le projet est un **repo git** avec un commit baseline (Arbor en a besoin)
+- ✅ **`research_config.yaml`** écrit à la racine = le Contrat de Recherche (objectif,
+  commande d'expérience, métrique `score`, fichiers interdits = le juge neutre)
+- ✅ Provider : ta clé **OpenRouter** (OpenAI-compatible via LiteLLM) dans `.env`
 
-- Commande : `python -m latentbridge.experiment --config configs/base.yaml --set <clé>=<val> ...`
-- Métrique : `runs/<tag>/metrics.json` → champ `score` (et `guidance_gain`, etc.)
-- Espace de recherche : `loop/search_space.yaml`
+## Ce qu'il te reste (install + lancement — à faire toi-même)
 
-## Installation
+> L'install auto a été bloquée par le garde-fou anti-supply-chain (normal pour
+> un paquet tiers). Lance-la toi-même — tape ces lignes (le préfixe `!` les exécute
+> dans la session) :
 
-```bash
-pip install arbor-agent
-arbor setup          # choisir le provider LLM -> OpenRouter (clé dans .env)
+```powershell
+# 1) installer Arbor (paquet officiel PyPI du repo RUC-NLPIR/Arbor)
+uv tool install arbor-agent --python 3.11
+#    (ou, depuis les sources déjà clonées :)
+#    uv pip install -e external/arbor
+
+# 2) configurer le provider (choisis OpenAI-compatible -> base_url OpenRouter, colle la clé)
+arbor setup
+
+# 3) vérifier
+arbor doctor
+
+# 4) lancer la recherche d'architecture sur CE projet
+arbor --config research_config.yaml
+#    petit essai : ajoute --max-cycles 3
 ```
 
-`arbor setup` te demandera le provider. Avec OpenRouter, renseigne
-`OPENROUTER_API_KEY` (déjà dans `.env`) et un modèle Coordinator. Pour Arbor qui
-*raisonne* sur les expériences, prends un modèle costaud (Claude/GPT/DeepSeek) ;
-le modèle gratuit `google/gemma-4-31b-it:free` suffit pour le planner du gridworld
-mais sera faible comme Coordinator.
+`arbor setup` (OpenRouter) : provider **OpenAI-compatible**, base_url
+`https://openrouter.ai/api/v1`, clé = `OPENROUTER_API_KEY`, modèle Coordinator
+costaud (Claude/GPT/DeepSeek) — le gratuit `google/gemma-4-31b-it:free` est trop
+faible comme Coordinator.
 
-## Donner l'objectif à Arbor
+Pendant un run : `/status`, `/tree`, `/evidence`, `/cost`, `/pause`, `/report`, `/abort`.
 
-Arbor lit un objectif en langage + un repo de travail. Objectif suggéré :
+## Garde-fous scientifiques (déjà dans research_config.yaml)
 
-> « Maximise `score` dans `runs/<tag>/metrics.json` en modifiant SEULEMENT les
-> clés listées dans `loop/search_space.yaml` et le code de
-> `latentbridge/models/`. Lance chaque essai avec
-> `python -m latentbridge.experiment --config configs/base.yaml --set ...`.
-> Garde toujours un essai de contrôle `loss.align=0` comme groupe témoin.
-> Ne touche pas à `latentbridge/evaluate.py` (sinon tu triches sur la métrique). »
+- Arbor PEUT régler les boutons de `loop/search_space.yaml` et éditer
+  `latentbridge/models/` (inventer de l'archi).
+- Il NE DOIT PAS toucher `latentbridge/evaluate.py` ni `latentbridge/env/`
+  (le juge neutre — sinon il triche sur la métrique). Les worktrees git protègent
+  déjà `main`.
+- À chaque cycle, un **contrôle** `align=0` est exigé comme témoin.
 
-Le dernier point est crucial : **interdire à l'agent de modifier la fonction
-d'évaluation**, sinon il « optimisera » en cassant la mesure. Arbor isole chaque
-essai dans un worktree git, donc protège déjà `main`.
+## Alternative immédiate (sans Arbor)
 
-## Au-delà des hyperparams : laisser Arbor inventer de l'architecture
-
-Pour une vraie découverte d'architecture (pas juste du tuning), autorise Arbor à
-éditer `latentbridge/models/bridge.py` et `world_model.py` (nouveau type
-d'adapter, attention, codebook discret type VQ, dynamique récurrente...). Garde
-`evaluate.py` et `env/` figés comme juge neutre.
+`python loop/random_search.py --trials 0` fait déjà tourner la recherche en continu.
+Arbor = la version qui raisonne ; le loop = la version qui marche tout de suite.
