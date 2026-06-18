@@ -1,0 +1,27 @@
+# The architecture-search space. This is what the continuous loop (Arbor, or the
+# built-in random_search.py) is allowed to mutate. Maximize metrics["score"].
+#
+# Each entry: a config dotted-key -> a set/range of candidate values.
+objective:
+  metric: score          # key in metrics.json
+  direction: maximize
+
+knobs:
+  loss.align:      {type: float, low: 0.0, high: 1.0}      # 0 = ablate the bridge
+  loss.cycle:      {type: float, low: 0.0, high: 0.5}
+  loss.ground:     {type: float, low: 0.0, high: 2.0}
+  loss.recon:      {type: float, low: 0.0, high: 2.0}
+  loss.dyn:        {type: float, low: 0.5, high: 2.0}
+  model.latent_dim: {type: choice, values: [32, 64, 96, 128]}
+  model.lang_dim:  {type: choice, values: [64, 128, 256]}
+  model.hidden:    {type: choice, values: [64, 128, 256]}
+  control.horizon: {type: choice, values: [3, 5, 6, 8, 10]}
+  control.guide_weight: {type: float, low: 0.0, high: 4.0}
+  train.lr:        {type: float, low: 0.0003, high: 0.003}
+  train.steps:     {type: choice, values: [1000, 1500, 2500]}
+
+# Scientific guardrail: always keep an align=0 run in each generation as the
+# control group, so "the bridge helps" is measured, not assumed.
+controls:
+  - name: no_bridge_ablation
+    set: {loss.align: 0.0, loss.cycle: 0.0, loss.ground: 0.0, control.guide_weight: 0.0}

@@ -1,0 +1,46 @@
+# Base config = the default architecture. Every key here is a knob Arbor can
+# mutate during the continuous search (see loop/search_space.yaml).
+seed: 0
+
+env:
+  kind: gridworld
+  size: 6
+  max_steps: 50
+  n_walls: 0
+  step_penalty: 0.01
+  include_goal_in_obs: false   # false = goal given ONLY in language (tests the bridge)
+
+model:
+  latent_dim: 64
+  lang_dim: 128
+  hidden: 128
+
+# Loss weights — the heart of the architecture search.
+# align/cycle control how strongly the latent space is tied to language (the
+# novel "Latent Bridge" objective). Set align=0 to ablate the bridge entirely.
+loss:
+  dyn: 1.0
+  rew: 1.0
+  recon: 1.0
+  align: 0.3
+  cycle: 0.1
+  ground: 0.5     # language -> latent grounding (lets the planner pass goals as text)
+
+train:
+  collect_episodes: 80
+  steps: 1500
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 6
+  n_samples: 256
+  gamma: 0.95
+  guide_weight: 1.0
+
+planner:
+  backend: mock          # mock | openrouter
+  model: google/gemma-4-31b-it:free
+
+eval:
+  episodes: 50

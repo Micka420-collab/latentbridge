@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon IA — Assistant de vie</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>Mon IA</h1>
+          <p class="sub">Assistant de vie · LLM × World Model</p>
+        </div>
+      </div>
+      <div class="status" id="status">
+        <span class="dot"></span><span id="status-text">connexion…</span>
+      </div>
+    </header>
+
+    <section class="card hero">
+      <label class="field-label" for="intention">Ton intention pour aujourd'hui</label>
+      <textarea id="intention" rows="2"
+        placeholder="Ex : je suis épuisé, je veux surtout me reposer aujourd'hui…"></textarea>
+      <div class="chips" id="chips"></div>
+      <button class="btn" id="plan-btn">Planifier ma journée</button>
+    </section>
+
+    <section id="result" class="result hidden">
+      <div class="card plan-head">
+        <div>
+          <p class="muted">Intention détectée</p>
+          <h2 id="goal-title">—</h2>
+          <p class="muted" id="goal-desc"></p>
+        </div>
+        <div class="outcome" id="outcome"></div>
+      </div>
+
+      <div class="grid">
+        <div class="card span2">
+          <h3>Ta journée proposée</h3>
+          <div class="timeline" id="timeline"></div>
+        </div>
+        <div class="card">
+          <h3>Énergie</h3>
+          <svg id="energy" viewBox="0 0 320 120" preserveAspectRatio="none"></svg>
+          <p class="muted small" id="energy-cap"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Tâches du jour</h3>
+        <ul class="list" id="tasks"></ul>
+      </div>
+      <div class="card">
+        <h3>Habitudes</h3>
+        <ul class="list" id="habits"></ul>
+      </div>
+      <div class="card">
+        <h3>Labo · le pont sert-il ?</h3>
+        <div id="lab"></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>LatentBridge · le checkpoint = la mémoire transférable (un jour : un robot)</span>
+    </footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

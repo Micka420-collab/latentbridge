@@ -1,0 +1,32 @@
+# Secrets
+.env
+*.key
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Experiment artifacts
+runs/
+checkpoints/
+*.ckpt
+*.pt
+wandb/
+
+# Cloned external repos (hermes-agent, arbor) — do not commit
+external/
+
+# Arbor / worktrees
+.arbor/
+worktrees/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Personal day data (real life)
+mydata/today.yaml

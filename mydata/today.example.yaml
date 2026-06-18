@@ -1,0 +1,18 @@
+# Ta vraie journée — édite ce fichier. L'assistant planifie À PARTIR d'ici.
+# Garde au plus 4 tâches (les + prioritaires sont gardées en premier).
+energy: 0.8            # ton niveau d'énergie au réveil (0 à 1)
+
+habits_done:           # habitudes déjà faites aujourd'hui ?
+  exercise: false
+  study: false
+  social: false
+
+tasks:
+  - title: "Finir le rapport client"
+    priority: high
+  - title: "Préparer la présentation de demain"
+    priority: high
+  - title: "Répondre aux emails en retard"
+    priority: low
+  - title: "Faire les courses"
+    priority: low

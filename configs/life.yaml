@@ -1,0 +1,40 @@
+# Personal "your day" world. Same architecture as gridworld, new body.
+seed: 0
+
+env:
+  kind: lifeworld
+  n_slots: 10        # time slots in a waking day
+  max_tasks: 4
+  n_high: 2          # high-priority tasks among them
+
+model:
+  latent_dim: 96
+  lang_dim: 128
+  hidden: 256
+
+loss:
+  dyn: 1.0
+  rew: 1.0
+  recon: 1.0
+  align: 0.9
+  cycle: 0.15
+  ground: 1.0        # language -> latent: the planner hands the day-goal as text
+
+train:
+  collect_episodes: 200
+  steps: 2500
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 10        # plan the whole day
+  n_samples: 512
+  gamma: 0.97
+  guide_weight: 3.5
+
+planner:
+  backend: mock          # mock | openrouter (openrouter = LLM parses your intention)
+  model: google/gemma-4-31b-it:free
+
+eval:
+  episodes: 60

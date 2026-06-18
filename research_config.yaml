@@ -1,0 +1,31 @@
+# Arbor Research Contract for LatentBridge.
+# Start with:  arbor --config research_config.yaml
+task: >
+  Discover a stronger LatentBridge architecture (a learned latent bridge between
+  a frozen LLM and a world model) for small hardware. Maximize metrics["score"]
+  in runs/<tag>/metrics.json, produced by this command (use the ABSOLUTE venv
+  python so torch is available inside git worktrees):
+
+    F:/newtechno/.venv/Scripts/python.exe -m latentbridge.experiment
+        --config configs/base.yaml --tag <unique> --set KEY=VALUE ...
+
+  You MAY: tune any knob in loop/search_space.yaml, and edit the architecture in
+  latentbridge/models/ (bridge.py, world_model.py, encoder.py, decoder.py) to
+  invent new designs.
+  You MUST NOT modify latentbridge/evaluate.py, latentbridge/env/, or the eval
+  settings in configs/ — that is the neutral judge; changing it is cheating.
+  Every cycle, also run one CONTROL with loss.align=0 loss.ground=0
+  control.guide_weight=0 (the no-bridge baseline) and report whether the bridge
+  still beats it.
+  Primary metric: score (higher is better). Secondary: guidance_gain, align_cosine_heldout.
+  Also try the harder config: --config configs/life.yaml (the personal "day" world).
+
+coordinator:
+  max_cycles: 10          # arbor cycles to explore
+  max_depth: 2            # Idea Tree depth
+  merge_threshold: 2.0    # min held-out gain (% of score) to merge into trunk
+  ui:
+    interaction_mode: review   # auto | direction | review | collaborative
+
+executor:
+  max_turns: 80
