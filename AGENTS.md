@@ -18,19 +18,38 @@ Mesure rapide avec verdict vs baseline :
 F:/newtechno/.venv/Scripts/python.exe scripts/measure.py --config configs/life.yaml --set loss.align=0.5
 ```
 
-## Règles de sécurité (dures)
-1. **JAMAIS sur `main`.** Toujours : `git checkout -b improve/<sujet>`.
-2. **NE TOUCHE PAS au juge neutre** : `latentbridge/evaluate.py`,
-   `latentbridge/env/`, ni les réglages d'éval dans `configs/`. Modifier le juge
-   = tricher, pas améliorer.
-3. Tu PEUX éditer : `latentbridge/models/` (l'architecture), les poids de pertes
-   et boutons dans `configs/` et `loop/search_space.yaml`.
-4. **Garde un changement seulement s'il bat la baseline** sur `score`. Sinon
-   `git restore` / abandonne la branche.
-5. Toujours un **contrôle** `loss.align=0 loss.ground=0 control.guide_weight=0`.
-6. Ne touche jamais : `.env` (secrets), `runs/`, `.venv/`, `external/`, `mydata/today.yaml`.
-7. Quand tu as une vraie amélioration : **commit sur la branche puis STOP**. Laisse
-   l'humain relire le diff et merger. Ne merge pas sur `main` toi-même.
+## Niveaux d'autorisation
+- **Niveau 1** (sûr) : boutons dans `configs/` et `loop/search_space.yaml`.
+- **Niveau 2** : l'architecture dans `latentbridge/models/`.
+- **Niveau 3** (risqué) : le **noyau du loop** — `latentbridge/train.py`,
+  `latentbridge/controller.py`, `loop/`. Autorisé, MAIS snapshot + branche +
+  **validation à deux** obligatoires. Jamais merger seul.
+
+**Hors-limites à TOUS les niveaux — le juge neutre** : `latentbridge/evaluate.py`,
+`latentbridge/env/`, et les réglages d'éval dans `configs/`. Raison : si tu édites
+le juge, le `score` ne veut plus rien dire — ce n'est pas un risque de casse,
+c'est que tes mesures deviennent fausses. Jamais non plus : `.env`, `runs/`,
+`.venv/`, `external/`, `mydata/today.yaml`.
+
+## Sauvegarde / restauration (OBLIGATOIRE à chaque modif)
+Avant CHAQUE modif, prends un point de restauration :
+```
+F:/newtechno/.venv/Scripts/python.exe scripts/snapshot.py save "<ce que tu tentes>"
+```
+Si la mesure dit pire ou inutile, reviens en arrière :
+```
+F:/newtechno/.venv/Scripts/python.exe scripts/snapshot.py restore <id>
+F:/newtechno/.venv/Scripts/python.exe scripts/snapshot.py list      # voir les points
+```
+(Hermes snapshote aussi TOUT automatiquement avant chaque écriture — `/rollback`
+dans le chat pour annuler.)
+
+## La boucle d'amélioration (suis-la)
+1. `git checkout -b improve/<sujet>` — jamais sur `main`.
+2. `snapshot.py save "..."` → une modif ciblée → `measure.py` → un contrôle `align=0`.
+3. **Mieux** que la baseline ? commit sur la branche. **Pire/inutile** ? `snapshot.py restore`.
+4. Quand tu tiens une vraie amélioration : **STOP — on valide ENSEMBLE** avant de
+   merger sur `main`. Jamais seul.
 
 ## Repères (scores à battre)
 - lifeworld : score ~**0.88** (configs/life.yaml)
