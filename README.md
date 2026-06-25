@@ -59,6 +59,31 @@ scripts/         measure.py, wm_probe.py (drift), few-shot / in-context experime
   meta-learner infers an *unseen* environment's dynamics from a handful of
   observations — **no retraining** (accuracy climbs with context).
 
+## Comparison vs baselines (honest)
+
+The repo ships reference baselines and an **equal-budget, multi-seed** comparison
+harness (`latentbridge/benchmark.py`, `latentbridge/baselines/`): `random` (floor),
+`ppo` / `dqn` (model-free RL), `llm-only` (planner goal, no world model),
+`world-model` (LatentBridge with the bridge ablated = control), and `latentbridge`.
+
+```bash
+python -m latentbridge.benchmark --config configs/base.yaml --seeds 5 --budget 80 --regime both
+python -m latentbridge.benchmark --config configs/minigrid.yaml --seeds 5 --budget 120 --regime visible
+```
+
+Reproduced numbers in [`BENCHMARK_RESULTS.md`](BENCHMARK_RESULTS.md):
+
+- **More sample-efficient than model-free RL at equal budget** — gridworld 0.46 vs
+  PPO 0.05 / DQN 0.12; MiniGrid-Empty 0.64 vs PPO/DQN **0.00**.
+- The **bridge helps when the goal is hidden** (language-only regime, +0.28 over the
+  control) and is **neutral/negative when the goal is observable** — reported, not hidden.
+- Also runs on the **public MiniGrid** env (`configs/minigrid.yaml`), the same harness,
+  no code change (swap `env_id` for BabyAI multi-goal missions).
+
+> Honesty (`integrations/BENCHMARKING.md`): until the same harness clears a public
+> benchmark at scale, the claim is *"promising, more sample-efficient than PPO/DQN at
+> equal budget"* — **not** "state of the art".
+
 ## Methodology & roadmap
 
 - `AGENTS.md` — the *measure-don't-guess* contract (never claim an unmeasured

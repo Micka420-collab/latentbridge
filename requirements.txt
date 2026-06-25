@@ -4,3 +4,6 @@ torch>=2.0          # CPU is enough for the benchmark; CUDA optional
 # optional: real frozen-LLM planner via OpenRouter (otherwise the offline "mock" backend is used)
 openai>=1.0
 python-dotenv>=1.0
+# optional: the public MiniGrid benchmark env (configs/minigrid.yaml)
+gymnasium>=0.29
+minigrid>=2.3

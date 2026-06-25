@@ -36,4 +36,11 @@ def make_env(cfg, seed: int = 0):
     if kind == "simcalc":
         return SimCalcWorld(max_value=e.get("max_value", 9),
                             max_steps=e.get("max_steps", 6), seed=seed)
+    if kind == "minigrid":
+        # public benchmark (gymnasium MiniGrid / BabyAI) — lazy import so the env
+        # package stays importable without the optional `minigrid` dependency.
+        from .minigrid_adapter import MiniGridAdapter
+        return MiniGridAdapter(env_id=e.get("env_id", "MiniGrid-Empty-5x5-v0"),
+                               seed=seed, max_steps=e.get("max_steps"),
+                               fully_obs=e.get("fully_obs", True))
     raise ValueError(f"unknown env kind: {kind}")

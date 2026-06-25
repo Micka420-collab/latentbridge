@@ -1,0 +1,43 @@
+# Public benchmark: gymnasium MiniGrid (Empty-5x5). Same architecture, new body.
+# Goal is in the (fully-observed) grid, so this is a sample-efficiency contest
+# (Regime A). The language-bridge's distinct edge needs BabyAI GoTo* (several
+# candidate goals) — a follow-up env_id swap, no code change.
+seed: 0
+
+env:
+  kind: minigrid
+  env_id: MiniGrid-Empty-5x5-v0
+  max_steps: 64
+  fully_obs: true
+
+model:
+  latent_dim: 96
+  lang_dim: 128
+  hidden: 256
+
+loss:
+  dyn: 1.391
+  rew: 1.0
+  recon: 0.644
+  align: 0.934
+  cycle: 0.179
+  ground: 1.143
+
+train:
+  collect_episodes: 80
+  steps: 1500
+  batch_size: 128
+  lr: 0.00091
+
+control:
+  horizon: 8
+  n_samples: 256
+  gamma: 0.97
+  guide_weight: 3.561
+
+planner:
+  backend: mock
+  model: google/gemma-4-31b-it:free
+
+eval:
+  episodes: 30
