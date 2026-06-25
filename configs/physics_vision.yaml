@@ -1,0 +1,48 @@
+# ÉTAPE 5 — la VISION. Elle ne lit plus ses coordonnées : elle reçoit une IMAGE
+# (2 frames empilées pour percevoir le mouvement) et doit apprendre à voir.
+seed: 0
+
+env:
+  kind: physicsworld
+  dims: 2
+  obs_mode: pixels      # <- l'œil : obs = image rendue, pas l'état
+  img_size: 16
+  dt: 0.1
+  thrust: 2.0
+  drag: 0.10
+  gravity: 0.0
+  max_steps: 60
+  reach_radius: 0.14
+
+model:
+  latent_dim: 96
+  lang_dim: 128
+  hidden: 256
+  obs_image_shape: [4, 16, 16]   # 2 frames x 2 channels x 16x16 -> CNN visual cortex
+
+loss:
+  dyn: 1.0
+  rew: 1.0
+  recon: 1.0            # reconstruit l'image -> ancre le latent dans la vision
+  align: 0.3
+  cycle: 0.1
+  ground: 0.5
+
+train:
+  collect_episodes: 220
+  steps: 4500
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 12
+  n_samples: 512
+  gamma: 0.97
+  guide_weight: 1.0
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 40

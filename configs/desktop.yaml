@@ -1,0 +1,43 @@
+# ÉTAPE DESKTOP (niveau simulation) — le bureau comme monde. L'agent ne lit PAS
+# le but : il reçoit l'état GUI (arbre d'accessibilité structuré) et le but lui
+# est donné UNIQUEMENT en langage → seul le canal LLM→pont→world-model le résout.
+# Succès vérifié programmatiquement (pas de juge VLM). Pixels: aucun (budget 8GB).
+# Poids RÉGLÉS par random_search (40 essais): score 0.710 -> 0.866, gain +0.73.
+seed: 0
+
+env:
+  kind: desktopworld
+  max_steps: 12
+  step_cost: 0.02
+
+model:                 # tuned (Level-1 search)
+  latent_dim: 64
+  lang_dim: 128
+  hidden: 128
+
+loss:                  # tuned weights
+  dyn: 1.257
+  rew: 1.0
+  recon: 0.890
+  align: 0.303
+  cycle: 0.139
+  ground: 0.510
+
+train:
+  collect_episodes: 220
+  steps: 2500          # tuned
+  batch_size: 128
+  lr: 0.00198          # tuned
+
+control:
+  horizon: 6           # tuned (8 -> 6 : rollouts plus courts, moins de dérive)
+  n_samples: 512
+  gamma: 0.95
+  guide_weight: 3.171  # tuned
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 60

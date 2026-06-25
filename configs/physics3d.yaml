@@ -1,0 +1,47 @@
+# ÉTAPE 4 — physique 3D + gravité + atterrissage en douceur (un "lander").
+# Elle doit lutter contre la gravité ET arriver LENTEMENT (contrôle réel).
+seed: 0
+
+env:
+  kind: physicsworld
+  dims: 3
+  dt: 0.1
+  thrust: 3.5
+  drag: 0.10
+  gravity: 0.5          # tire vers le bas (axe z)
+  soft_landing: true    # "atteint" seulement si on arrive doucement
+  land_speed: 0.7
+  max_steps: 80
+  reach_radius: 0.18
+
+model:
+  latent_dim: 64
+  lang_dim: 128
+  hidden: 256
+
+loss:
+  dyn: 1.0
+  rew: 1.0
+  recon: 1.0
+  align: 0.3
+  cycle: 0.1
+  ground: 0.5
+
+train:
+  collect_episodes: 200
+  steps: 4000
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 20           # 3D + gravité = il faut anticiper loin
+  n_samples: 1024
+  gamma: 0.97
+  guide_weight: 1.0
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 50

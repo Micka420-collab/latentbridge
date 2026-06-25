@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "env": "gridworld",
+      "config": "configs/base.yaml",
+      "score": 0.567,
+      "success_guided": 0.74,
+      "success_unguided": 0.12,
+      "guidance_gain": 0.62,
+      "align_cosine": 1.0,
+      "wall_sec": 50.17,
+      "ablation_success": 0.1
+    },
+    {
+      "env": "lifeworld",
+      "config": "configs/life.yaml",
+      "score": 0.883,
+      "success_guided": 0.983,
+      "success_unguided": 0.6,
+      "guidance_gain": 0.383,
+      "align_cosine": 0.9996,
+      "wall_sec": 49.41,
+      "ablation_success": 0.433
+    },
+    {
+      "env": "physics2d",
+      "config": "configs/physics.yaml",
+      "score": 0.886,
+      "success_guided": 0.98,
+      "success_unguided": 1.0,
+      "guidance_gain": -0.02,
+      "align_cosine": 0.8702,
+      "wall_sec": 56.12,
+      "ablation_success": 1.0
+    },
+    {
+      "env": "physics3d",
+      "config": "configs/physics3d.yaml",
+      "score": 0.572,
+      "success_guided": 0.84,
+      "success_unguided": 0.72,
+      "guidance_gain": 0.12,
+      "align_cosine": 0.8398,
+      "wall_sec": 154.54,
+      "ablation_success": 0.96
+    },
+    {
+      "env": "desktopworld",
+      "config": "configs/desktop.yaml",
+      "score": 0.96,
+      "success_guided": 1.0,
+      "success_unguided": 0.233,
+      "guidance_gain": 0.767,
+      "align_cosine": 0.9997,
+      "wall_sec": 25.98,
+      "ablation_success": 0.2
+    },
+    {
+      "env": "simcalc",
+      "config": "configs/calc.yaml",
+      "score": 0.99,
+      "success_guided": 1.0,
+      "success_unguided": 0.117,
+      "guidance_gain": 0.883,
+      "align_cosine": 0.9999,
+      "wall_sec": 31.27,
+      "ablation_success": 0.1
+    }
+  ],
+  "device": "cpu",
+  "note": "held-out eval; higher is better"
+}

@@ -1,0 +1,41 @@
+# PONT LANGAGE -> VRAIE APP : on entraîne le pont sur un sim de calculatrice
+# (but = un nombre, donné UNIQUEMENT en langage), puis on transfère le checkpoint
+# pour piloter la VRAIE Calculatrice Windows (scripts/calc_real.py).
+seed: 0
+
+env:
+  kind: simcalc
+  max_value: 9
+  max_steps: 6
+
+model:
+  latent_dim: 48
+  lang_dim: 128
+  hidden: 128
+
+loss:
+  dyn: 1.0
+  rew: 1.0
+  recon: 1.0
+  align: 0.6
+  cycle: 0.1
+  ground: 1.0
+
+train:
+  collect_episodes: 300
+  steps: 4000          # tuned
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 1           # tuned (1-press task -> no lookahead noise)
+  n_samples: 64        # tuned
+  gamma: 0.9
+  guide_weight: 8.0    # tuned (guided success 1.0, gain +0.88)
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 60

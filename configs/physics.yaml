@@ -1,0 +1,44 @@
+# Physical-dynamics world — Shellia's body-prep training ground.
+# The world model must learn momentum / inertia / (optional) gravity.
+seed: 0
+
+env:
+  kind: physicsworld
+  dt: 0.1
+  thrust: 2.0
+  drag: 0.10
+  gravity: 0.0        # 0 = pure inertia world; raise it for a "lander" (harder)
+  max_steps: 60
+  reach_radius: 0.12
+
+model:
+  latent_dim: 64
+  lang_dim: 128
+  hidden: 256
+
+loss:
+  dyn: 1.0            # predicting next physical state = the whole point here
+  rew: 1.0
+  recon: 1.0
+  align: 0.3
+  cycle: 0.1
+  ground: 0.5
+
+train:
+  collect_episodes: 150
+  steps: 3000
+  batch_size: 128
+  lr: 0.001
+
+control:
+  horizon: 12         # momentum needs lookahead (plan to decelerate in time)
+  n_samples: 512
+  gamma: 0.97
+  guide_weight: 1.0
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 50

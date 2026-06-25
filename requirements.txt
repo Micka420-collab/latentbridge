@@ -1,0 +1,6 @@
+numpy>=1.24
+pyyaml>=6.0
+torch>=2.0          # CPU is enough for the benchmark; CUDA optional
+# optional: real frozen-LLM planner via OpenRouter (otherwise the offline "mock" backend is used)
+openai>=1.0
+python-dotenv>=1.0

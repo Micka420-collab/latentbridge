@@ -1,0 +1,45 @@
+# Desktop ROBUSTE — la config qui passe 5/5 en sim-to-real (vrai disque).
+# = desktop.yaml réglé + RSSM (dynamique récurrente, dérive ÷2) + plus
+# d'échantillons MPC. Eval sim: succès 0.967, guidance_gain 0.95.
+#   entraîner : python -m latentbridge.experiment --config configs/desktop_robust.yaml --tag rob_rssm
+#   incarner  : python scripts/desktop_real.py --run rob_rssm --gui
+seed: 0
+
+env:
+  kind: desktopworld
+  max_steps: 12
+  step_cost: 0.02
+
+model:
+  latent_dim: 64
+  lang_dim: 128
+  hidden: 128
+  dynamics: rssm        # <- world model récurrent (GRU dans le rollout)
+
+train:
+  collect_episodes: 220
+  steps: 2500
+  batch_size: 128
+  lr: 0.00198
+  seq_len: 6            # fenêtre d'entraînement multi-pas du RSSM
+
+loss:
+  dyn: 1.257
+  rew: 1.0
+  recon: 0.890
+  align: 0.303
+  cycle: 0.139
+  ground: 0.510
+
+control:
+  horizon: 8            # le RSSM tient l'horizon long (faible dérive)
+  n_samples: 2048       # plus d'échantillons -> 91.7% -> 96.7% -> 5/5
+  gamma: 0.95
+  guide_weight: 3.171
+
+planner:
+  backend: mock
+  model: deepseek/deepseek-v4-flash
+
+eval:
+  episodes: 60
