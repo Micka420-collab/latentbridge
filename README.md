@@ -1,13 +1,37 @@
 # LatentBridge
 
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-CPU%20or%20CUDA-ee4c2c.svg)
+![benchmark: reproducible](https://img.shields.io/badge/benchmark-reproducible-success.svg)
+
 **Couple a frozen LLM to a trained world model through a learned latent bridge, and
 plan inside the world model toward a goal given in language.**
 
 Most LLM-agent stacks are *reactive*: a model looks at an observation and emits an
-action. LatentBridge is **model-based**: a frozen LLM states the goal in language,
-a small **learned bridge** maps that language into the world model's latent space,
-and a **model-predictive controller** plans a sequence of actions by imagining
-rollouts inside the learned world model.
+action. **LatentBridge is model-based** — a frozen LLM states the goal in language, a
+small **learned bridge** maps that language into the world model's latent space, and a
+**model-predictive controller** plans by imagining rollouts inside the learned model.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    ENV[["Environment / app / world"]] -->|"observation"| ENC["Encoder"]
+    ENC --> Z(["latent state z"])
+    LLM["🧊 Frozen LLM"] -->|"goal in language"| FL["Latent Bridge<br/>(from_lang)"]
+    FL --> ZT(["target latent z*"])
+    Z --> MPC{{"MPC planner<br/>imagine + score rollouts"}}
+    ZT --> MPC
+    WM["World Model<br/>z, a → z', reward"] <-->|"imagined rollouts"| MPC
+    MPC -->|"best action"| ENV
+    Z -. "align / cycle / ground losses<br/>(tie latent ↔ language)" .-> FL
+```
+
+*Encoder, world model and bridge are **learned**; the LLM stays **frozen** and only
+states the goal in language. The bridge is what lets that language **steer the
+planning** inside the latent world model — that connector, applied to one new domain,
+is the contribution.*
 
 > **Honest framing.** This is a *recombination* of known ideas (learned world
 > models, frozen-LLM conditioning, MPC), assembled into one loop and **measured**.
