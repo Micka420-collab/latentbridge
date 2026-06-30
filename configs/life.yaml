@@ -30,7 +30,7 @@ control:
   horizon: 10        # plan the whole day
   n_samples: 512
   gamma: 0.97
-  guide_weight: 3.5
+  guide_weight: 5.0
 
 planner:
   backend: mock          # mock | openrouter (openrouter = LLM parses your intention)
