@@ -85,20 +85,29 @@ def train(cfg, device="cpu", verbose=True):
         L_align = bridge.align_loss(z, lang[idx])
         L_cycle = bridge.cycle_loss(z)
         L_ground = torch.nn.functional.mse_loss(bridge.from_lang(lang[idx]), z.detach())
+        L_contrastive = torch.tensor(0.0, device=device)
+        if w.get("contrastive", 0) > 0 and hasattr(bridge, "contrastive_loss"):
+            temp = w.get("contrastive_temp", 0.07)
+            L_contrastive = bridge.contrastive_loss(z, lang[idx], temperature=temp)
 
         loss = (w["dyn"] * L_dyn + w["rew"] * L_rew + w["recon"] * L_recon
                 + w["align"] * L_align + w["cycle"] * L_cycle
-                + w.get("ground", 0.0) * L_ground)
+                + w.get("ground", 0.0) * L_ground
+                + w.get("contrastive", 0.0) * L_contrastive)
 
         opt.zero_grad()
         loss.backward()
         opt.step()
 
         if verbose and (step % max(1, cfg["train"]["steps"] // 10) == 0):
-            print(f"step {step:5d} | loss {loss.item():.4f} | dyn {L_dyn.item():.4f} "
-                  f"rew {L_rew.item():.4f} recon {L_recon.item():.4f} "
-                  f"align {L_align.item():.4f} cycle {L_cycle.item():.4f} "
-                  f"ground {L_ground.item():.4f}")
+            parts = [
+                f"step {step:5d} | loss {loss.item():.4f}",
+                f"dyn {L_dyn.item():.4f} rew {L_rew.item():.4f} recon {L_recon.item():.4f}",
+                f"align {L_align.item():.4f} cycle {L_cycle.item():.4f} ground {L_ground.item():.4f}",
+            ]
+            if L_contrastive.item() > 0:
+                parts.append(f"contrastive {L_contrastive.item():.4f}")
+            print(" | ".join(parts))
         history.append(loss.item())
 
     m["history"] = history
