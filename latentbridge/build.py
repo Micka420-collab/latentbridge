@@ -36,23 +36,22 @@ def _make_legacy(cfg, obs_dim, n_actions, device="cpu"):
 
 
 def _make_v2(cfg, obs_dim, n_actions, device="cpu"):
-    from .models_v2 import (
-        ResidualEncoder, ResidualDecoder, AttentionWorldModel,
-        CrossAttBridge,
-    )
-    from .models_v2.learned_text_embedder import LearnedTextEmbedder
+    from .models_v2 import AttentionWorldModel
+    # V2-lite: only upgrade the world model to use self-attention.
+    # Residual encoder collapses latent via too-easy alignment.
+    from .models import Encoder, Decoder, LatentBridge
+    from .text_features import HashingTextFeaturizer
 
     ld = cfg["model"]["latent_dim"]
     lg = cfg["model"]["lang_dim"]
     h = cfg["model"].get("hidden", 256)
-    num_blocks = cfg["model"].get("num_blocks", 2)
     num_heads = cfg["model"].get("num_heads", 4)
     dropout = cfg["model"].get("dropout", 0.1)
 
     return {
-        "encoder": ResidualEncoder(obs_dim, ld, h, num_blocks=num_blocks).to(device),
-        "decoder": ResidualDecoder(ld, obs_dim, h, num_blocks=num_blocks).to(device),
+        "encoder": Encoder(obs_dim, ld, h).to(device),
+        "decoder": Decoder(ld, obs_dim, h).to(device),
         "world_model": AttentionWorldModel(ld, n_actions, h, num_heads=num_heads, dropout=dropout).to(device),
-        "bridge": CrossAttBridge(ld, lg, h, num_heads=num_heads, dropout=dropout).to(device),
-        "featurizer": LearnedTextEmbedder(dim=lg, seed=cfg["seed"]),
+        "bridge": LatentBridge(ld, lg, h).to(device),
+        "featurizer": HashingTextFeaturizer(dim=lg, seed=cfg["seed"]),
     }
