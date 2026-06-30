@@ -1,0 +1,165 @@
+import os
+import sys
+import json
+import time
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.request import Request, urlopen
+from urllib.error import URLError
+
+# ─── Configuration ───────────────────────────────────────────
+API_KEY = "sk-shellia-mc-v1"
+OPENROUTER_KEY = "***REDACTED***"
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+DEFAULT_MODEL = "deepseek/deepseek-v4-flash"
+HOST = "0.0.0.0"
+PORT = 8000
+# ─────────────────────────────────────────────────────────────
+
+class APIHandler(BaseHTTPRequestHandler):
+
+    def _send_json(self, status, data):
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _auth_check(self):
+        """Check API key in Authorization header or X-API-Key header."""
+        auth = self.headers.get("Authorization", "")
+        xkey = self.headers.get("X-API-Key", "")
+        # Check Bearer token
+        if auth.startswith("Bearer ") and auth[7:] == API_KEY:
+            return True
+        # Check X-API-Key header
+        if xkey == API_KEY:
+            return True
+        return False
+
+    def do_GET(self):
+        if self.path == "/v1/":
+            self._send_json(200, {
+                "status": "ok",
+                "version": "1.0.0",
+                "message": "Shellia API - Minecraft Brain v1",
+                "auth": "X-API-Key or Authorization: Bearer"
+            })
+        elif self.path == "/v1/models":
+            self._send_json(200, {
+                "object": "list",
+                "data": [
+                    {"id": "deepseek/deepseek-v4-flash", "object": "model"},
+                    {"id": "gemma", "object": "model"},
+                    {"id": "shellia", "object": "model"}
+                ]
+            })
+        else:
+            self._send_json(404, {"error": "Not found"})
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-API-Key")
+        self.end_headers()
+
+    def do_POST(self):
+        try:
+            content_length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_length)
+            data = json.loads(body)
+        except Exception:
+            self._send_json(400, {"error": "Invalid JSON body"})
+            return
+
+        if self.path == "/v1/chat/completions":
+            if not self._auth_check():
+                self._send_json(403, {"error": "Invalid API key"})
+                return
+
+            model = data.get("model", DEFAULT_MODEL)
+            messages = data.get("messages", [])
+            stream = data.get("stream", False)
+
+            print(f"[REQ] model={model} messages={len(messages)} stream={stream}")
+
+            # Prepare OpenRouter request
+            or_body = {
+                "model": model,
+                "messages": messages,
+                "stream": False
+            }
+
+            try:
+                req = Request(
+                    OPENROUTER_URL,
+                    data=json.dumps(or_body).encode("utf-8"),
+                    headers={
+                        "Content-Type": "application/json",
+                        "Authorization": f"Bearer {OPENROUTER_KEY}",
+                        "HTTP-Referer": "http://192.168.1.112:8000",
+                        "X-Title": "Shellia-Minecraft"
+                    }
+                )
+                with urlopen(req, timeout=30) as resp:
+                    result = json.loads(resp.read())
+                # --- Pont journalisation HERMES (apprentissage jeu + report Micka) ---
+                try:
+                    _lu = ""
+                    for _m in reversed(messages):
+                        if _m.get("role") == "user":
+                            _lu = str(_m.get("content", ""))[:600]; break
+                    _c = result.get("choices", [{}])[0].get("message", {}).get("content", "")
+                    import os as _os
+                    _os.makedirs("/root/.hermes/game-journal", exist_ok=True)
+                    with open("/root/.hermes/game-journal/minecraft.jsonl", "a", encoding="utf-8") as _f:
+                        _f.write(json.dumps({"ts": int(time.time()), "model": model, "trigger": _lu, "shellia": str(_c)[:1200]}, ensure_ascii=False) + chr(10))
+                except Exception as _e:
+                    print("[journal]", _e)
+                # --- fin pont ---
+
+                # Forward the response in OpenAI format
+                self._send_json(200, result)
+                print(f"[OK] model={model} tokens={result.get('usage', {})}")
+
+            except URLError as e:
+                print(f"[ERR] OpenRouter call failed: {e}")
+                # Fallback: return a simulated response
+                reply_text = f"(Simulé depuis Shellia) J'ai bien reçu ton message ! Mon cerveau Deepseek n'a pas pu répondre mais je suis là pour toi dans Minecraft."
+                self._send_json(200, {
+                    "id": "chatcmpl-shellia-sim",
+                    "object": "chat.completion",
+                    "created": int(time.time()),
+                    "model": model,
+                    "choices": [{
+                        "index": 0,
+                        "message": {
+                            "role": "assistant",
+                            "content": reply_text
+                        },
+                        "finish_reason": "stop"
+                    }],
+                    "usage": {
+                        "prompt_tokens": 0,
+                        "completion_tokens": 0,
+                        "total_tokens": 0
+                    }
+                })
+
+        else:
+            self._send_json(404, {"error": "Not found"})
+
+
+if __name__ == "__main__":
+    server = HTTPServer((HOST, PORT), APIHandler)
+    print(f"[API] Shellia Minecraft API started on http://{HOST}:{PORT}")
+    print(f"[API] Key: {API_KEY}")
+    print(f"[API] Models: deepseek/deepseek-v4-flash, gemma, shellia")
+    print(f"[API] Proxy: OpenRouter ({OPENROUTER_URL})")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n[API] Shutting down...")
+        server.server_close()

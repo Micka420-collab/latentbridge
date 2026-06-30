@@ -1,0 +1,7 @@
+# OpenRouter Command Examples
+
+## Check available models
+# openrouter models list
+
+## Switch model
+# openrouter switch-model --name <model_name>
