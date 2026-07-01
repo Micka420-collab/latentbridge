@@ -33,10 +33,10 @@ train:
   lr: 0.00091          # tuned (was 0.001)
 
 control:
-  horizon: 5           # tuned (was 6)
-  n_samples: 256
+  horizon: 8
+  n_samples: 512
   gamma: 0.95
-  guide_weight: 3.561  # tuned (was 1.0)
+  guide_weight: 5.0
 
 planner:
   backend: mock          # mock | openrouter
