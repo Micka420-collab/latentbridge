@@ -1,0 +1,1430 @@
+step     0 | loss 0.4169 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.0492 cycle 0.0054 ground 0.0052
+step   150 | loss 0.0458 | dyn 0.0002 rew 0.0000 recon 0.0135 | align 0.1059 cycle 0.0022 ground 0.0002
+step   300 | loss 0.0222 | dyn 0.0008 rew 0.0156 recon 0.0121 | align 0.0007 cycle 0.0007 ground 0.0001
+step   450 | loss 0.0131 | dyn 0.0003 rew 0.0078 recon 0.0115 | align 0.0002 cycle 0.0003 ground 0.0000
+step   600 | loss 0.0052 | dyn 0.0002 rew 0.0003 recon 0.0113 | align 0.0000 cycle 0.0002 ground 0.0000
+step   750 | loss 0.0051 | dyn 0.0002 rew 0.0000 recon 0.0114 | align 0.0003 cycle 0.0002 ground 0.0000
+step   900 | loss 0.0128 | dyn 0.0002 rew 0.0079 recon 0.0114 | align 0.0001 cycle 0.0002 ground 0.0000
+step  1050 | loss 0.0049 | dyn 0.0002 rew 0.0001 recon 0.0114 | align 0.0000 cycle 0.0002 ground 0.0000
+step  1200 | loss 0.0127 | dyn 0.0002 rew 0.0078 recon 0.0114 | align 0.0000 cycle 0.0002 ground 0.0000
+step  1350 | loss 0.0127 | dyn 0.0002 rew 0.0078 recon 0.0113 | align 0.0000 cycle 0.0002 ground 0.0000
+
+=== METRICS ===
+{
+  "score": -0.3274,
+  "success_rate_guided": 0.12,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.0,
+  "avg_steps_guided": 44.74,
+  "avg_steps_unguided": 44.82,
+  "avg_reward_guided": -0.3262000000000001,
+  "align_cosine_heldout": 0.9999698996543884,
+  "final_loss": 0.012701274827122688,
+  "wall_time_sec": 17.97
+}
+
+primary score = -0.3274  ->  runs/trial_0000/metrics.json
+step     0 | loss 0.2248 | dyn 0.0017 rew 0.0000 recon 0.0152 | align 0.7879 cycle 0.0030 ground 0.0038
+step   100 | loss 0.0027 | dyn 0.0015 rew 0.0003 recon 0.0116 | align 0.0001 cycle 0.0001 ground 0.0001
+step   200 | loss 0.0099 | dyn 0.0013 rew 0.0079 recon 0.0092 | align 0.0001 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0170 | dyn 0.0014 rew 0.0156 recon 0.0043 | align 0.0001 cycle 0.0000 ground 0.0001
+step   400 | loss 0.0012 | dyn 0.0012 rew 0.0001 recon 0.0023 | align 0.0001 cycle 0.0000 ground 0.0001
+step   500 | loss 0.0089 | dyn 0.0013 rew 0.0079 recon 0.0016 | align 0.0000 cycle 0.0001 ground 0.0001
+step   600 | loss 0.0011 | dyn 0.0011 rew 0.0002 recon 0.0006 | align 0.0000 cycle 0.0001 ground 0.0001
+step   700 | loss 0.0165 | dyn 0.0010 rew 0.0158 recon 0.0003 | align 0.0000 cycle 0.0001 ground 0.0001
+step   800 | loss 0.0008 | dyn 0.0010 rew 0.0001 recon 0.0002 | align 0.0000 cycle 0.0000 ground 0.0001
+step   900 | loss 0.0085 | dyn 0.0010 rew 0.0078 recon 0.0003 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": -0.06359999999999999,
+  "success_rate_guided": 0.3,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.15999999999999998,
+  "avg_steps_guided": 36.36,
+  "avg_steps_unguided": 43.48,
+  "avg_reward_guided": -0.06060000000000015,
+  "align_cosine_heldout": 0.9999337792396545,
+  "final_loss": 0.008581358939409256,
+  "wall_time_sec": 20.56
+}
+
+primary score = -0.0636  ->  runs/trial_0001/metrics.json
+step     0 | loss 0.2343 | dyn 0.0060 rew 0.0048 recon 0.0189 | align 0.9140 cycle 0.0145 ground 0.0138
+step   100 | loss 0.0242 | dyn 0.0028 rew 0.0003 recon 0.0133 | align 0.0779 cycle 0.0054 ground 0.0018
+step   200 | loss 0.0150 | dyn 0.0046 rew 0.0079 recon 0.0119 | align 0.0057 cycle 0.0019 ground 0.0010
+step   300 | loss 0.0195 | dyn 0.0023 rew 0.0156 recon 0.0115 | align 0.0001 cycle 0.0013 ground 0.0001
+step   400 | loss 0.0037 | dyn 0.0020 rew 0.0002 recon 0.0107 | align 0.0001 cycle 0.0010 ground 0.0001
+step   500 | loss 0.0115 | dyn 0.0026 rew 0.0079 recon 0.0096 | align 0.0001 cycle 0.0007 ground 0.0000
+step   600 | loss 0.0033 | dyn 0.0028 rew 0.0002 recon 0.0068 | align 0.0001 cycle 0.0006 ground 0.0001
+step   700 | loss 0.0188 | dyn 0.0030 rew 0.0158 recon 0.0058 | align 0.0001 cycle 0.0004 ground 0.0000
+step   800 | loss 0.0031 | dyn 0.0031 rew 0.0001 recon 0.0054 | align 0.0001 cycle 0.0003 ground 0.0001
+step   900 | loss 0.0110 | dyn 0.0033 rew 0.0079 recon 0.0057 | align 0.0001 cycle 0.0003 ground 0.0001
+
+=== METRICS ===
+{
+  "score": 0.13319999999999999,
+  "success_rate_guided": 0.44,
+  "success_rate_unguided": 0.18,
+  "guidance_gain": 0.26,
+  "avg_steps_guided": 30.68,
+  "avg_steps_unguided": 43.5,
+  "avg_reward_guided": 0.13759999999999986,
+  "align_cosine_heldout": 0.9998946189880371,
+  "final_loss": 0.011020466685295105,
+  "wall_time_sec": 16.05
+}
+
+primary score = 0.1332  ->  runs/trial_0002/metrics.json
+step     0 | loss 1.1006 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.1086 cycle 0.0060 ground 0.0058
+step   250 | loss 0.0231 | dyn 0.0033 rew 0.0079 recon 0.0112 | align 0.0001 cycle 0.0005 ground 0.0002
+step   500 | loss 0.0182 | dyn 0.0046 rew 0.0079 recon 0.0063 | align 0.0001 cycle 0.0002 ground 0.0001
+step   750 | loss 0.0070 | dyn 0.0039 rew 0.0001 recon 0.0037 | align 0.0001 cycle 0.0002 ground 0.0002
+step  1000 | loss 0.0123 | dyn 0.0040 rew 0.0080 recon 0.0013 | align 0.0001 cycle 0.0004 ground 0.0004
+step  1250 | loss 0.0182 | dyn 0.0040 rew 0.0154 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+step  1500 | loss 0.0259 | dyn 0.0036 rew 0.0235 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step  1750 | loss 0.0103 | dyn 0.0035 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step  2000 | loss 0.0100 | dyn 0.0030 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  2250 | loss 0.0026 | dyn 0.0036 rew 0.0002 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": 0.04820000000000002,
+  "success_rate_guided": 0.38,
+  "success_rate_unguided": 0.18,
+  "guidance_gain": 0.2,
+  "avg_steps_guided": 33.18,
+  "avg_steps_unguided": 41.68,
+  "avg_reward_guided": 0.05199999999999985,
+  "align_cosine_heldout": 0.9999871850013733,
+  "final_loss": 0.017451032996177673,
+  "wall_time_sec": 21.15
+}
+
+primary score = 0.0482  ->  runs/trial_0003/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 40.89
+}
+
+primary score = -0.3030  ->  runs/trial_0004_control/metrics.json
+step     0 | loss 0.2304 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.0492 cycle 0.0054 ground 0.0052
+step   150 | loss 0.0324 | dyn 0.0001 rew 0.0003 recon 0.0135 | align 0.1072 cycle 0.0005 ground 0.0004
+step   300 | loss 0.0308 | dyn 0.0014 rew 0.0156 recon 0.0116 | align 0.0117 cycle 0.0015 ground 0.0012
+step   450 | loss 0.0181 | dyn 0.0007 rew 0.0079 recon 0.0114 | align 0.0002 cycle 0.0003 ground 0.0001
+step   600 | loss 0.0096 | dyn 0.0008 rew 0.0002 recon 0.0104 | align 0.0003 cycle 0.0002 ground 0.0001
+step   750 | loss 0.0083 | dyn 0.0015 rew 0.0000 recon 0.0079 | align 0.0004 cycle 0.0002 ground 0.0001
+step   900 | loss 0.0145 | dyn 0.0027 rew 0.0079 recon 0.0043 | align 0.0004 cycle 0.0002 ground 0.0003
+step  1050 | loss 0.0051 | dyn 0.0029 rew 0.0000 recon 0.0021 | align 0.0004 cycle 0.0002 ground 0.0003
+step  1200 | loss 0.0126 | dyn 0.0031 rew 0.0081 recon 0.0011 | align 0.0004 cycle 0.0002 ground 0.0003
+step  1350 | loss 0.0125 | dyn 0.0034 rew 0.0079 recon 0.0004 | align 0.0006 cycle 0.0003 ground 0.0004
+
+=== METRICS ===
+{
+  "score": 0.0938,
+  "success_rate_guided": 0.42,
+  "success_rate_unguided": 0.22,
+  "guidance_gain": 0.19999999999999998,
+  "avg_steps_guided": 32.62,
+  "avg_steps_unguided": 40.8,
+  "avg_reward_guided": 0.09799999999999988,
+  "align_cosine_heldout": 0.9996665716171265,
+  "final_loss": 0.012668650597333908,
+  "wall_time_sec": 24.39
+}
+
+primary score = 0.0938  ->  runs/trial_0005/metrics.json
+step     0 | loss 0.5016 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 0.8815 cycle 0.0032 ground 0.0032
+step   100 | loss 0.0211 | dyn 0.0022 rew 0.0004 recon 0.0116 | align 0.0004 cycle 0.0005 ground 0.0002
+step   200 | loss 0.0240 | dyn 0.0024 rew 0.0079 recon 0.0080 | align 0.0002 cycle 0.0004 ground 0.0003
+step   300 | loss 0.0256 | dyn 0.0042 rew 0.0156 recon 0.0016 | align 0.0002 cycle 0.0003 ground 0.0003
+step   400 | loss 0.0071 | dyn 0.0036 rew 0.0004 recon 0.0002 | align 0.0001 cycle 0.0003 ground 0.0003
+step   500 | loss 0.0139 | dyn 0.0034 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0002
+step   600 | loss 0.0050 | dyn 0.0026 rew 0.0003 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0002
+step   700 | loss 0.0205 | dyn 0.0026 rew 0.0157 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step   800 | loss 0.0045 | dyn 0.0024 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step   900 | loss 0.0121 | dyn 0.0024 rew 0.0077 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+
+=== METRICS ===
+{
+  "score": 0.10359999999999997,
+  "success_rate_guided": 0.42,
+  "success_rate_unguided": 0.18,
+  "guidance_gain": 0.24,
+  "avg_steps_guided": 31.64,
+  "avg_steps_unguided": 42.58,
+  "avg_reward_guided": 0.10779999999999988,
+  "align_cosine_heldout": 0.9999597072601318,
+  "final_loss": 0.012140633538365364,
+  "wall_time_sec": 25.05
+}
+
+primary score = 0.1036  ->  runs/trial_0006/metrics.json
+step     0 | loss 0.0459 | dyn 0.0017 rew 0.0003 recon 0.0159 | align 1.0189 cycle 0.0026 ground 0.0027
+step   250 | loss 0.0156 | dyn 0.0004 rew 0.0079 recon 0.0072 | align 0.0018 cycle 0.0003 ground 0.0003
+step   500 | loss 0.0126 | dyn 0.0004 rew 0.0078 recon 0.0038 | align 0.0009 cycle 0.0002 ground 0.0003
+step   750 | loss 0.0033 | dyn 0.0004 rew 0.0000 recon 0.0021 | align 0.0009 cycle 0.0002 ground 0.0003
+step  1000 | loss 0.0113 | dyn 0.0005 rew 0.0081 recon 0.0019 | align 0.0007 cycle 0.0002 ground 0.0003
+step  1250 | loss 0.0176 | dyn 0.0005 rew 0.0153 recon 0.0009 | align 0.0006 cycle 0.0002 ground 0.0003
+step  1500 | loss 0.0261 | dyn 0.0008 rew 0.0235 recon 0.0003 | align 0.0010 cycle 0.0001 ground 0.0004
+step  1750 | loss 0.0104 | dyn 0.0009 rew 0.0080 recon 0.0001 | align 0.0010 cycle 0.0001 ground 0.0003
+step  2000 | loss 0.0108 | dyn 0.0007 rew 0.0080 recon 0.0001 | align 0.0024 cycle 0.0002 ground 0.0007
+step  2250 | loss 0.0025 | dyn 0.0006 rew 0.0002 recon 0.0001 | align 0.0012 cycle 0.0002 ground 0.0006
+
+=== METRICS ===
+{
+  "score": 0.15999999999999998,
+  "success_rate_guided": 0.48,
+  "success_rate_unguided": 0.26,
+  "guidance_gain": 0.21999999999999997,
+  "avg_steps_guided": 32.0,
+  "avg_steps_unguided": 41.7,
+  "avg_reward_guided": 0.16479999999999986,
+  "align_cosine_heldout": 0.9988450407981873,
+  "final_loss": 0.01746191829442978,
+  "wall_time_sec": 35.0
+}
+
+primary score = 0.1600  ->  runs/trial_0007/metrics.json
+step     0 | loss 0.0982 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.0961 cycle 0.0075 ground 0.0070
+step   150 | loss 0.0240 | dyn 0.0001 rew 0.0000 recon 0.0134 | align 0.1015 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0338 | dyn 0.0005 rew 0.0156 recon 0.0118 | align 0.0050 cycle 0.0003 ground 0.0001
+step   450 | loss 0.0235 | dyn 0.0004 rew 0.0078 recon 0.0101 | align 0.0013 cycle 0.0004 ground 0.0002
+step   600 | loss 0.0131 | dyn 0.0006 rew 0.0002 recon 0.0078 | align 0.0012 cycle 0.0005 ground 0.0004
+step   750 | loss 0.0115 | dyn 0.0005 rew 0.0000 recon 0.0069 | align 0.0009 cycle 0.0004 ground 0.0003
+step   900 | loss 0.0176 | dyn 0.0006 rew 0.0078 recon 0.0055 | align 0.0007 cycle 0.0005 ground 0.0004
+step  1050 | loss 0.0079 | dyn 0.0005 rew 0.0001 recon 0.0044 | align 0.0007 cycle 0.0004 ground 0.0003
+step  1200 | loss 0.0149 | dyn 0.0005 rew 0.0079 recon 0.0038 | align 0.0005 cycle 0.0004 ground 0.0003
+step  1350 | loss 0.0140 | dyn 0.0006 rew 0.0077 recon 0.0032 | align 0.0005 cycle 0.0004 ground 0.0004
+
+=== METRICS ===
+{
+  "score": -0.11259999999999998,
+  "success_rate_guided": 0.28,
+  "success_rate_unguided": 0.26,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 39.26,
+  "avg_steps_unguided": 42.34,
+  "avg_reward_guided": -0.10980000000000015,
+  "align_cosine_heldout": 0.9995150566101074,
+  "final_loss": 0.013799833133816719,
+  "wall_time_sec": 23.46
+}
+
+primary score = -0.1126  ->  runs/trial_0008/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.63
+}
+
+primary score = -0.3030  ->  runs/trial_0009_control/metrics.json
+step     0 | loss 0.6398 | dyn 0.0034 rew 0.0036 recon 0.0172 | align 1.0223 cycle 0.0066 ground 0.0063
+step   150 | loss 0.0182 | dyn 0.0037 rew 0.0000 recon 0.0113 | align 0.0005 cycle 0.0006 ground 0.0002
+step   300 | loss 0.0332 | dyn 0.0040 rew 0.0156 recon 0.0111 | align 0.0001 cycle 0.0001 ground 0.0001
+step   450 | loss 0.0222 | dyn 0.0084 rew 0.0077 recon 0.0057 | align 0.0003 cycle 0.0004 ground 0.0003
+step   600 | loss 0.0121 | dyn 0.0080 rew 0.0004 recon 0.0036 | align 0.0004 cycle 0.0003 ground 0.0004
+step   750 | loss 0.0115 | dyn 0.0101 rew 0.0001 recon 0.0018 | align 0.0003 cycle 0.0005 ground 0.0006
+step   900 | loss 0.0182 | dyn 0.0107 rew 0.0078 recon 0.0005 | align 0.0002 cycle 0.0006 ground 0.0007
+step  1050 | loss 0.0100 | dyn 0.0099 rew 0.0001 recon 0.0001 | align 0.0002 cycle 0.0008 ground 0.0010
+step  1200 | loss 0.0167 | dyn 0.0073 rew 0.0080 recon 0.0001 | align 0.0001 cycle 0.0012 ground 0.0014
+step  1350 | loss 0.0150 | dyn 0.0063 rew 0.0078 recon 0.0001 | align 0.0001 cycle 0.0009 ground 0.0010
+
+=== METRICS ===
+{
+  "score": 0.3746,
+  "success_rate_guided": 0.62,
+  "success_rate_unguided": 0.2,
+  "guidance_gain": 0.42,
+  "avg_steps_guided": 24.54,
+  "avg_steps_unguided": 41.26,
+  "avg_reward_guided": 0.38079999999999986,
+  "align_cosine_heldout": 0.9999332427978516,
+  "final_loss": 0.014202870428562164,
+  "wall_time_sec": 14.44
+}
+
+primary score = 0.3746  ->  runs/trial_0010/metrics.json
+step     0 | loss 0.0533 | dyn 0.0034 rew 0.0036 recon 0.0172 | align 1.0223 cycle 0.0066 ground 0.0063
+step   100 | loss 0.0094 | dyn 0.0000 rew 0.0003 recon 0.0135 | align 0.0975 cycle 0.0000 ground 0.0000
+step   200 | loss 0.0155 | dyn 0.0003 rew 0.0078 recon 0.0123 | align 0.0351 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0215 | dyn 0.0001 rew 0.0156 recon 0.0107 | align 0.0015 cycle 0.0001 ground 0.0001
+step   400 | loss 0.0057 | dyn 0.0001 rew 0.0002 recon 0.0098 | align 0.0011 cycle 0.0001 ground 0.0001
+step   500 | loss 0.0133 | dyn 0.0001 rew 0.0080 recon 0.0092 | align 0.0009 cycle 0.0001 ground 0.0001
+step   600 | loss 0.0048 | dyn 0.0001 rew 0.0002 recon 0.0080 | align 0.0012 cycle 0.0001 ground 0.0001
+step   700 | loss 0.0202 | dyn 0.0002 rew 0.0158 recon 0.0075 | align 0.0008 cycle 0.0001 ground 0.0001
+step   800 | loss 0.0041 | dyn 0.0001 rew 0.0001 recon 0.0068 | align 0.0007 cycle 0.0001 ground 0.0001
+step   900 | loss 0.0116 | dyn 0.0001 rew 0.0078 recon 0.0062 | align 0.0005 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": -0.18159999999999996,
+  "success_rate_guided": 0.22,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.07999999999999999,
+  "avg_steps_guided": 40.16,
+  "avg_steps_unguided": 44.26,
+  "avg_reward_guided": -0.17940000000000011,
+  "align_cosine_heldout": 0.9992868900299072,
+  "final_loss": 0.011298037134110928,
+  "wall_time_sec": 19.91
+}
+
+primary score = -0.1816  ->  runs/trial_0011/metrics.json
+step     0 | loss 0.6347 | dyn 0.0017 rew 0.0003 recon 0.0159 | align 1.1089 cycle 0.0028 ground 0.0034
+step   100 | loss 0.0397 | dyn 0.0046 rew 0.0004 recon 0.0121 | align 0.0246 cycle 0.0020 ground 0.0017
+step   200 | loss 0.0298 | dyn 0.0042 rew 0.0079 recon 0.0115 | align 0.0001 cycle 0.0002 ground 0.0001
+step   300 | loss 0.0361 | dyn 0.0047 rew 0.0156 recon 0.0100 | align 0.0003 cycle 0.0004 ground 0.0003
+step   400 | loss 0.0170 | dyn 0.0072 rew 0.0004 recon 0.0057 | align 0.0003 cycle 0.0004 ground 0.0005
+step   500 | loss 0.0253 | dyn 0.0114 rew 0.0080 recon 0.0033 | align 0.0004 cycle 0.0006 ground 0.0006
+step   600 | loss 0.0142 | dyn 0.0103 rew 0.0002 recon 0.0017 | align 0.0004 cycle 0.0005 ground 0.0006
+step   700 | loss 0.0303 | dyn 0.0115 rew 0.0156 recon 0.0014 | align 0.0003 cycle 0.0005 ground 0.0007
+step   800 | loss 0.0143 | dyn 0.0119 rew 0.0002 recon 0.0008 | align 0.0003 cycle 0.0006 ground 0.0007
+step   900 | loss 0.0219 | dyn 0.0127 rew 0.0078 recon 0.0002 | align 0.0002 cycle 0.0006 ground 0.0007
+
+=== METRICS ===
+{
+  "score": -0.23600000000000004,
+  "success_rate_guided": 0.18,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.03999999999999998,
+  "avg_steps_guided": 41.6,
+  "avg_steps_unguided": 43.38,
+  "avg_reward_guided": -0.23420000000000016,
+  "align_cosine_heldout": 0.9997397065162659,
+  "final_loss": 0.02155924402177334,
+  "wall_time_sec": 13.94
+}
+
+primary score = -0.2360  ->  runs/trial_0012/metrics.json
+step     0 | loss 0.3903 | dyn 0.0060 rew 0.0048 recon 0.0189 | align 0.9261 cycle 0.0097 ground 0.0095
+step   250 | loss 0.0212 | dyn 0.0009 rew 0.0079 recon 0.0113 | align 0.0001 cycle 0.0000 ground 0.0001
+step   500 | loss 0.0228 | dyn 0.0036 rew 0.0080 recon 0.0079 | align 0.0003 cycle 0.0001 ground 0.0004
+step   750 | loss 0.0143 | dyn 0.0056 rew 0.0001 recon 0.0035 | align 0.0004 cycle 0.0005 ground 0.0007
+step  1000 | loss 0.0233 | dyn 0.0073 rew 0.0081 recon 0.0015 | align 0.0005 cycle 0.0007 ground 0.0015
+step  1250 | loss 0.0238 | dyn 0.0036 rew 0.0155 recon 0.0003 | align 0.0007 cycle 0.0021 ground 0.0059
+step  1500 | loss 0.0258 | dyn 0.0007 rew 0.0234 recon 0.0000 | align 0.0003 cycle 0.0015 ground 0.0055
+step  1750 | loss 0.0093 | dyn 0.0004 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0006 ground 0.0037
+step  2000 | loss 0.0091 | dyn 0.0002 rew 0.0081 recon 0.0001 | align 0.0001 cycle 0.0003 ground 0.0032
+step  2250 | loss 0.0010 | dyn 0.0001 rew 0.0003 recon 0.0000 | align 0.0001 cycle 0.0005 ground 0.0030
+
+=== METRICS ===
+{
+  "score": 0.5634,
+  "success_rate_guided": 0.74,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.62,
+  "avg_steps_guided": 17.66,
+  "avg_steps_unguided": 44.54,
+  "avg_reward_guided": 0.5708,
+  "align_cosine_heldout": 0.9999265670776367,
+  "final_loss": 0.016014685854315758,
+  "wall_time_sec": 16.94
+}
+
+primary score = 0.5634  ->  runs/trial_0013/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.36
+}
+
+primary score = -0.3030  ->  runs/trial_0014_control/metrics.json
+step     0 | loss 0.7356 | dyn 0.0061 rew 0.0184 recon 0.0205 | align 1.0121 cycle 0.0127 ground 0.0132
+step   100 | loss 0.0824 | dyn 0.0002 rew 0.0003 recon 0.0135 | align 0.0983 cycle 0.0002 ground 0.0013
+step   200 | loss 0.0681 | dyn 0.0041 rew 0.0079 recon 0.0130 | align 0.0615 cycle 0.0015 ground 0.0018
+step   300 | loss 0.0333 | dyn 0.0026 rew 0.0156 recon 0.0117 | align 0.0028 cycle 0.0009 ground 0.0009
+step   400 | loss 0.0142 | dyn 0.0016 rew 0.0002 recon 0.0111 | align 0.0002 cycle 0.0000 ground 0.0001
+step   500 | loss 0.0217 | dyn 0.0017 rew 0.0080 recon 0.0108 | align 0.0001 cycle 0.0000 ground 0.0000
+step   600 | loss 0.0108 | dyn 0.0021 rew 0.0002 recon 0.0077 | align 0.0002 cycle 0.0001 ground 0.0002
+step   700 | loss 0.0241 | dyn 0.0027 rew 0.0158 recon 0.0053 | align 0.0002 cycle 0.0001 ground 0.0002
+step   800 | loss 0.0072 | dyn 0.0028 rew 0.0001 recon 0.0041 | align 0.0001 cycle 0.0001 ground 0.0002
+step   900 | loss 0.0141 | dyn 0.0031 rew 0.0079 recon 0.0033 | align 0.0001 cycle 0.0002 ground 0.0003
+
+=== METRICS ===
+{
+  "score": -0.17799999999999996,
+  "success_rate_guided": 0.22,
+  "success_rate_unguided": 0.1,
+  "guidance_gain": 0.12,
+  "avg_steps_guided": 39.8,
+  "avg_steps_unguided": 45.26,
+  "avg_reward_guided": -0.17580000000000015,
+  "align_cosine_heldout": 0.9998754858970642,
+  "final_loss": 0.013621079735457897,
+  "wall_time_sec": 10.88
+}
+
+primary score = -0.1780  ->  runs/trial_0015/metrics.json
+step     0 | loss 0.6335 | dyn 0.0058 rew 0.0003 recon 0.0200 | align 0.8318 cycle 0.0138 ground 0.0140
+step   250 | loss 0.0201 | dyn 0.0037 rew 0.0080 recon 0.0054 | align 0.0002 cycle 0.0003 ground 0.0002
+step   500 | loss 0.0121 | dyn 0.0040 rew 0.0079 recon 0.0001 | align 0.0001 cycle 0.0004 ground 0.0004
+step   750 | loss 0.0028 | dyn 0.0027 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+step  1000 | loss 0.0102 | dyn 0.0014 rew 0.0081 recon 0.0000 | align 0.0000 cycle 0.0005 ground 0.0005
+step  1250 | loss 0.0168 | dyn 0.0006 rew 0.0154 recon 0.0000 | align 0.0000 cycle 0.0005 ground 0.0005
+step  1500 | loss 0.0243 | dyn 0.0003 rew 0.0232 recon 0.0000 | align 0.0000 cycle 0.0004 ground 0.0004
+step  1750 | loss 0.0088 | dyn 0.0002 rew 0.0079 recon 0.0000 | align 0.0000 cycle 0.0004 ground 0.0004
+step  2000 | loss 0.0087 | dyn 0.0001 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+step  2250 | loss 0.0011 | dyn 0.0001 rew 0.0004 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+
+=== METRICS ===
+{
+  "score": 0.5134,
+  "success_rate_guided": 0.72,
+  "success_rate_unguided": 0.24,
+  "guidance_gain": 0.48,
+  "avg_steps_guided": 20.66,
+  "avg_steps_unguided": 41.74,
+  "avg_reward_guided": 0.5205999999999998,
+  "align_cosine_heldout": 0.9999523758888245,
+  "final_loss": 0.016087200492620468,
+  "wall_time_sec": 20.48
+}
+
+primary score = 0.5134  ->  runs/trial_0016/metrics.json
+step     0 | loss 0.4069 | dyn 0.0027 rew 0.0015 recon 0.0166 | align 0.9019 cycle 0.0073 ground 0.0076
+step   100 | loss 0.0217 | dyn 0.0016 rew 0.0003 recon 0.0115 | align 0.0012 cycle 0.0003 ground 0.0003
+step   200 | loss 0.0250 | dyn 0.0021 rew 0.0079 recon 0.0086 | align 0.0003 cycle 0.0003 ground 0.0003
+step   300 | loss 0.0257 | dyn 0.0039 rew 0.0156 recon 0.0026 | align 0.0004 cycle 0.0006 ground 0.0004
+step   400 | loss 0.0059 | dyn 0.0032 rew 0.0003 recon 0.0003 | align 0.0002 cycle 0.0004 ground 0.0004
+step   500 | loss 0.0130 | dyn 0.0033 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0003
+step   600 | loss 0.0041 | dyn 0.0024 rew 0.0003 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0003
+step   700 | loss 0.0196 | dyn 0.0024 rew 0.0158 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0003
+step   800 | loss 0.0037 | dyn 0.0021 rew 0.0001 recon 0.0000 | align 0.0001 cycle 0.0004 ground 0.0004
+step   900 | loss 0.0114 | dyn 0.0016 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0006 ground 0.0006
+
+=== METRICS ===
+{
+  "score": 0.39980000000000004,
+  "success_rate_guided": 0.64,
+  "success_rate_unguided": 0.06,
+  "guidance_gain": 0.5800000000000001,
+  "avg_steps_guided": 24.02,
+  "avg_steps_unguided": 47.68,
+  "avg_reward_guided": 0.4061999999999999,
+  "align_cosine_heldout": 0.9999489188194275,
+  "final_loss": 0.010680625215172768,
+  "wall_time_sec": 14.81
+}
+
+primary score = 0.3998  ->  runs/trial_0017/metrics.json
+step     0 | loss 0.7322 | dyn 0.0060 rew 0.0048 recon 0.0189 | align 0.9045 cycle 0.0066 ground 0.0069
+step   250 | loss 0.0185 | dyn 0.0043 rew 0.0079 recon 0.0114 | align 0.0010 cycle 0.0014 ground 0.0001
+step   500 | loss 0.0184 | dyn 0.0051 rew 0.0080 recon 0.0093 | align 0.0001 cycle 0.0007 ground 0.0001
+step   750 | loss 0.0114 | dyn 0.0062 rew 0.0001 recon 0.0055 | align 0.0002 cycle 0.0007 ground 0.0001
+step  1000 | loss 0.0253 | dyn 0.0098 rew 0.0081 recon 0.0060 | align 0.0004 cycle 0.0006 ground 0.0003
+step  1250 | loss 0.0357 | dyn 0.0119 rew 0.0153 recon 0.0059 | align 0.0002 cycle 0.0003 ground 0.0002
+step  1500 | loss 0.0437 | dyn 0.0116 rew 0.0236 recon 0.0057 | align 0.0002 cycle 0.0004 ground 0.0005
+step  1750 | loss 0.0312 | dyn 0.0127 rew 0.0080 recon 0.0050 | align 0.0003 cycle 0.0012 ground 0.0018
+step  2000 | loss 0.0382 | dyn 0.0079 rew 0.0080 recon 0.0024 | align 0.0005 cycle 0.0113 ground 0.0146
+step  2250 | loss 0.0219 | dyn 0.0067 rew 0.0002 recon 0.0012 | align 0.0002 cycle 0.0087 ground 0.0091
+
+=== METRICS ===
+{
+  "score": 0.1598,
+  "success_rate_guided": 0.46,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.34,
+  "avg_steps_guided": 30.02,
+  "avg_steps_unguided": 44.3,
+  "avg_reward_guided": 0.16439999999999988,
+  "align_cosine_heldout": 0.9998804926872253,
+  "final_loss": 0.025040067732334137,
+  "wall_time_sec": 16.47
+}
+
+primary score = 0.1598  ->  runs/trial_0018/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.28
+}
+
+primary score = -0.3030  ->  runs/trial_0019_control/metrics.json
+step     0 | loss 0.3695 | dyn 0.0058 rew 0.0003 recon 0.0200 | align 0.8318 cycle 0.0138 ground 0.0140
+step   150 | loss 0.0214 | dyn 0.0025 rew 0.0000 recon 0.0114 | align 0.0012 cycle 0.0013 ground 0.0010
+step   300 | loss 0.0319 | dyn 0.0036 rew 0.0156 recon 0.0084 | align 0.0003 cycle 0.0003 ground 0.0002
+step   450 | loss 0.0177 | dyn 0.0059 rew 0.0077 recon 0.0030 | align 0.0003 cycle 0.0006 ground 0.0005
+step   600 | loss 0.0063 | dyn 0.0051 rew 0.0003 recon 0.0006 | align 0.0002 cycle 0.0010 ground 0.0008
+step   750 | loss 0.0056 | dyn 0.0055 rew 0.0001 recon 0.0001 | align 0.0001 cycle 0.0010 ground 0.0009
+step   900 | loss 0.0135 | dyn 0.0051 rew 0.0077 recon 0.0000 | align 0.0001 cycle 0.0015 ground 0.0015
+step  1050 | loss 0.0063 | dyn 0.0037 rew 0.0001 recon 0.0000 | align 0.0001 cycle 0.0027 ground 0.0026
+step  1200 | loss 0.0145 | dyn 0.0027 rew 0.0080 recon 0.0000 | align 0.0001 cycle 0.0034 ground 0.0034
+step  1350 | loss 0.0145 | dyn 0.0013 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0043 ground 0.0043
+
+=== METRICS ===
+{
+  "score": -0.44060000000000005,
+  "success_rate_guided": 0.04,
+  "success_rate_unguided": 0.04,
+  "guidance_gain": 0.0,
+  "avg_steps_guided": 48.06,
+  "avg_steps_unguided": 48.06,
+  "avg_reward_guided": -0.4402000000000001,
+  "align_cosine_heldout": 0.999966025352478,
+  "final_loss": 0.013809967786073685,
+  "wall_time_sec": 12.7
+}
+
+primary score = -0.4406  ->  runs/trial_0020/metrics.json
+step     0 | loss 0.0623 | dyn 0.0014 rew 0.0026 recon 0.0150 | align 0.9972 cycle 0.0028 ground 0.0029
+step   100 | loss 0.0141 | dyn 0.0003 rew 0.0002 recon 0.0131 | align 0.0676 cycle 0.0004 ground 0.0004
+step   200 | loss 0.0170 | dyn 0.0002 rew 0.0078 recon 0.0112 | align 0.0012 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0230 | dyn 0.0004 rew 0.0155 recon 0.0086 | align 0.0015 cycle 0.0003 ground 0.0003
+step   400 | loss 0.0058 | dyn 0.0004 rew 0.0003 recon 0.0059 | align 0.0010 cycle 0.0004 ground 0.0003
+step   500 | loss 0.0126 | dyn 0.0005 rew 0.0080 recon 0.0048 | align 0.0007 cycle 0.0003 ground 0.0003
+step   600 | loss 0.0032 | dyn 0.0005 rew 0.0001 recon 0.0028 | align 0.0005 cycle 0.0003 ground 0.0003
+step   700 | loss 0.0186 | dyn 0.0004 rew 0.0158 recon 0.0027 | align 0.0003 cycle 0.0003 ground 0.0002
+step   800 | loss 0.0025 | dyn 0.0004 rew 0.0001 recon 0.0020 | align 0.0004 cycle 0.0003 ground 0.0003
+step   900 | loss 0.0095 | dyn 0.0004 rew 0.0077 recon 0.0014 | align 0.0002 cycle 0.0003 ground 0.0003
+
+=== METRICS ===
+{
+  "score": -0.27780000000000005,
+  "success_rate_guided": 0.16,
+  "success_rate_unguided": 0.18,
+  "guidance_gain": -0.01999999999999999,
+  "avg_steps_guided": 43.78,
+  "avg_steps_unguided": 42.74,
+  "avg_reward_guided": -0.2762000000000001,
+  "align_cosine_heldout": 0.9997432231903076,
+  "final_loss": 0.009447130374610424,
+  "wall_time_sec": 26.16
+}
+
+primary score = -0.2778  ->  runs/trial_0021/metrics.json
+step     0 | loss 0.9089 | dyn 0.0063 rew 0.0158 recon 0.0185 | align 1.1176 cycle 0.0147 ground 0.0144
+step   250 | loss 0.0192 | dyn 0.0017 rew 0.0079 recon 0.0113 | align 0.0002 cycle 0.0001 ground 0.0001
+step   500 | loss 0.0168 | dyn 0.0025 rew 0.0080 recon 0.0062 | align 0.0001 cycle 0.0001 ground 0.0001
+step   750 | loss 0.0071 | dyn 0.0022 rew 0.0001 recon 0.0045 | align 0.0001 cycle 0.0001 ground 0.0001
+step  1000 | loss 0.0146 | dyn 0.0024 rew 0.0081 recon 0.0031 | align 0.0001 cycle 0.0001 ground 0.0001
+step  1250 | loss 0.0207 | dyn 0.0027 rew 0.0154 recon 0.0008 | align 0.0001 cycle 0.0002 ground 0.0002
+step  1500 | loss 0.0283 | dyn 0.0027 rew 0.0236 recon 0.0001 | align 0.0001 cycle 0.0001 ground 0.0001
+step  1750 | loss 0.0124 | dyn 0.0025 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  2000 | loss 0.0118 | dyn 0.0022 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  2250 | loss 0.0045 | dyn 0.0025 rew 0.0002 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": -0.1018,
+  "success_rate_guided": 0.28,
+  "success_rate_unguided": 0.2,
+  "guidance_gain": 0.08000000000000002,
+  "avg_steps_guided": 38.18,
+  "avg_steps_unguided": 41.98,
+  "avg_reward_guided": -0.09900000000000016,
+  "align_cosine_heldout": 0.9999465942382812,
+  "final_loss": 0.01901581697165966,
+  "wall_time_sec": 18.52
+}
+
+primary score = -0.1018  ->  runs/trial_0022/metrics.json
+step     0 | loss 0.4175 | dyn 0.0027 rew 0.0015 recon 0.0166 | align 0.9019 cycle 0.0073 ground 0.0076
+step   100 | loss 0.0128 | dyn 0.0020 rew 0.0003 recon 0.0116 | align 0.0011 cycle 0.0005 ground 0.0005
+step   200 | loss 0.0179 | dyn 0.0017 rew 0.0079 recon 0.0103 | align 0.0001 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0227 | dyn 0.0027 rew 0.0156 recon 0.0053 | align 0.0002 cycle 0.0003 ground 0.0002
+step   400 | loss 0.0046 | dyn 0.0028 rew 0.0003 recon 0.0017 | align 0.0002 cycle 0.0002 ground 0.0002
+step   500 | loss 0.0115 | dyn 0.0031 rew 0.0079 recon 0.0005 | align 0.0001 cycle 0.0002 ground 0.0002
+step   600 | loss 0.0027 | dyn 0.0022 rew 0.0003 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0002
+step   700 | loss 0.0181 | dyn 0.0022 rew 0.0158 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0002
+step   800 | loss 0.0023 | dyn 0.0020 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step   900 | loss 0.0099 | dyn 0.0020 rew 0.0078 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": 0.0050000000000000044,
+  "success_rate_guided": 0.36,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.24,
+  "avg_steps_guided": 35.5,
+  "avg_steps_unguided": 45.32,
+  "avg_reward_guided": 0.008599999999999844,
+  "align_cosine_heldout": 0.9999566674232483,
+  "final_loss": 0.00993539858609438,
+  "wall_time_sec": 14.75
+}
+
+primary score = 0.0050  ->  runs/trial_0023/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.38
+}
+
+primary score = -0.3030  ->  runs/trial_0024_control/metrics.json
+step     0 | loss 0.4476 | dyn 0.0060 rew 0.0048 recon 0.0189 | align 0.9045 cycle 0.0066 ground 0.0069
+step   100 | loss 0.0272 | dyn 0.0081 rew 0.0004 recon 0.0122 | align 0.0343 cycle 0.0323 ground 0.0017
+step   200 | loss 0.0116 | dyn 0.0034 rew 0.0079 recon 0.0113 | align 0.0001 cycle 0.0032 ground 0.0001
+step   300 | loss 0.0190 | dyn 0.0034 rew 0.0156 recon 0.0079 | align 0.0001 cycle 0.0025 ground 0.0001
+step   400 | loss 0.0036 | dyn 0.0034 rew 0.0003 recon 0.0055 | align 0.0001 cycle 0.0035 ground 0.0001
+step   500 | loss 0.0115 | dyn 0.0036 rew 0.0080 recon 0.0062 | align 0.0001 cycle 0.0018 ground 0.0000
+step   600 | loss 0.0032 | dyn 0.0030 rew 0.0002 recon 0.0055 | align 0.0002 cycle 0.0022 ground 0.0000
+step   700 | loss 0.0189 | dyn 0.0033 rew 0.0157 recon 0.0057 | align 0.0001 cycle 0.0013 ground 0.0000
+step   800 | loss 0.0032 | dyn 0.0031 rew 0.0002 recon 0.0055 | align 0.0001 cycle 0.0013 ground 0.0000
+step   900 | loss 0.0112 | dyn 0.0034 rew 0.0079 recon 0.0058 | align 0.0001 cycle 0.0011 ground 0.0000
+
+=== METRICS ===
+{
+  "score": 0.043200000000000016,
+  "success_rate_guided": 0.4,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.26,
+  "avg_steps_guided": 35.68,
+  "avg_steps_unguided": 44.2,
+  "avg_reward_guided": 0.04719999999999985,
+  "align_cosine_heldout": 0.9998728632926941,
+  "final_loss": 0.011196981184184551,
+  "wall_time_sec": 12.6
+}
+
+primary score = 0.0432  ->  runs/trial_0025/metrics.json
+step     0 | loss 0.0797 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.0492 cycle 0.0054 ground 0.0052
+step   150 | loss 0.0193 | dyn 0.0002 rew 0.0000 recon 0.0131 | align 0.0825 cycle 0.0005 ground 0.0004
+step   300 | loss 0.0292 | dyn 0.0003 rew 0.0156 recon 0.0114 | align 0.0012 cycle 0.0001 ground 0.0001
+step   450 | loss 0.0198 | dyn 0.0004 rew 0.0078 recon 0.0097 | align 0.0013 cycle 0.0003 ground 0.0002
+step   600 | loss 0.0097 | dyn 0.0005 rew 0.0002 recon 0.0073 | align 0.0013 cycle 0.0004 ground 0.0004
+step   750 | loss 0.0085 | dyn 0.0005 rew 0.0000 recon 0.0065 | align 0.0009 cycle 0.0003 ground 0.0003
+step   900 | loss 0.0147 | dyn 0.0005 rew 0.0078 recon 0.0050 | align 0.0006 cycle 0.0003 ground 0.0003
+step  1050 | loss 0.0055 | dyn 0.0005 rew 0.0001 recon 0.0039 | align 0.0006 cycle 0.0003 ground 0.0003
+step  1200 | loss 0.0129 | dyn 0.0006 rew 0.0079 recon 0.0034 | align 0.0004 cycle 0.0003 ground 0.0003
+step  1350 | loss 0.0122 | dyn 0.0005 rew 0.0077 recon 0.0030 | align 0.0004 cycle 0.0003 ground 0.0003
+
+=== METRICS ===
+{
+  "score": -0.3274,
+  "success_rate_guided": 0.12,
+  "success_rate_unguided": 0.1,
+  "guidance_gain": 0.01999999999999999,
+  "avg_steps_guided": 44.74,
+  "avg_steps_unguided": 45.64,
+  "avg_reward_guided": -0.3262000000000002,
+  "align_cosine_heldout": 0.9997215867042542,
+  "final_loss": 0.012116975151002407,
+  "wall_time_sec": 18.64
+}
+
+primary score = -0.3274  ->  runs/trial_0026/metrics.json
+step     0 | loss 0.4194 | dyn 0.0034 rew 0.0036 recon 0.0172 | align 1.1068 cycle 0.0063 ground 0.0067
+step   100 | loss 0.0222 | dyn 0.0095 rew 0.0003 recon 0.0119 | align 0.0246 cycle 0.0154 ground 0.0035
+step   200 | loss 0.0148 | dyn 0.0050 rew 0.0079 recon 0.0114 | align 0.0001 cycle 0.0028 ground 0.0001
+step   300 | loss 0.0227 | dyn 0.0066 rew 0.0156 recon 0.0077 | align 0.0002 cycle 0.0050 ground 0.0001
+step   400 | loss 0.0067 | dyn 0.0064 rew 0.0004 recon 0.0054 | align 0.0003 cycle 0.0058 ground 0.0001
+step   500 | loss 0.0153 | dyn 0.0077 rew 0.0079 recon 0.0060 | align 0.0003 cycle 0.0030 ground 0.0001
+step   600 | loss 0.0065 | dyn 0.0063 rew 0.0004 recon 0.0049 | align 0.0003 cycle 0.0038 ground 0.0002
+step   700 | loss 0.0228 | dyn 0.0078 rew 0.0157 recon 0.0045 | align 0.0003 cycle 0.0029 ground 0.0003
+step   800 | loss 0.0073 | dyn 0.0081 rew 0.0001 recon 0.0037 | align 0.0004 cycle 0.0029 ground 0.0004
+step   900 | loss 0.0160 | dyn 0.0093 rew 0.0079 recon 0.0023 | align 0.0003 cycle 0.0034 ground 0.0011
+
+=== METRICS ===
+{
+  "score": -0.15000000000000002,
+  "success_rate_guided": 0.24,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.09999999999999998,
+  "avg_steps_guided": 39.0,
+  "avg_steps_unguided": 43.52,
+  "avg_reward_guided": -0.14760000000000018,
+  "align_cosine_heldout": 0.9995309710502625,
+  "final_loss": 0.020986562594771385,
+  "wall_time_sec": 11.13
+}
+
+primary score = -0.1500  ->  runs/trial_0027/metrics.json
+step     0 | loss 0.4159 | dyn 0.0027 rew 0.0015 recon 0.0166 | align 0.9019 cycle 0.0073 ground 0.0076
+step   150 | loss 0.0088 | dyn 0.0014 rew 0.0000 recon 0.0099 | align 0.0002 cycle 0.0001 ground 0.0006
+step   300 | loss 0.0207 | dyn 0.0022 rew 0.0156 recon 0.0026 | align 0.0001 cycle 0.0001 ground 0.0008
+step   450 | loss 0.0105 | dyn 0.0017 rew 0.0077 recon 0.0002 | align 0.0001 cycle 0.0002 ground 0.0008
+step   600 | loss 0.0024 | dyn 0.0013 rew 0.0003 recon 0.0001 | align 0.0001 cycle 0.0001 ground 0.0005
+step   750 | loss 0.0021 | dyn 0.0013 rew 0.0000 recon 0.0001 | align 0.0001 cycle 0.0001 ground 0.0003
+step   900 | loss 0.0096 | dyn 0.0011 rew 0.0077 recon 0.0001 | align 0.0001 cycle 0.0002 ground 0.0003
+step  1050 | loss 0.0014 | dyn 0.0008 rew 0.0001 recon 0.0001 | align 0.0000 cycle 0.0003 ground 0.0004
+step  1200 | loss 0.0088 | dyn 0.0004 rew 0.0081 recon 0.0001 | align 0.0001 cycle 0.0003 ground 0.0004
+step  1350 | loss 0.0084 | dyn 0.0002 rew 0.0078 recon 0.0001 | align 0.0001 cycle 0.0004 ground 0.0005
+
+=== METRICS ===
+{
+  "score": -0.3528,
+  "success_rate_guided": 0.1,
+  "success_rate_unguided": 0.02,
+  "guidance_gain": 0.08,
+  "avg_steps_guided": 45.28,
+  "avg_steps_unguided": 49.04,
+  "avg_reward_guided": -0.3518000000000001,
+  "align_cosine_heldout": 0.9999186396598816,
+  "final_loss": 0.008177580311894417,
+  "wall_time_sec": 14.74
+}
+
+primary score = -0.3528  ->  runs/trial_0028/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.38
+}
+
+primary score = -0.3030  ->  runs/trial_0029_control/metrics.json
+step     0 | loss 0.9035 | dyn 0.0017 rew 0.0003 recon 0.0159 | align 1.0658 cycle 0.0027 ground 0.0029
+step   250 | loss 0.0353 | dyn 0.0042 rew 0.0079 recon 0.0113 | align 0.0001 cycle 0.0000 ground 0.0001
+step   500 | loss 0.0341 | dyn 0.0114 rew 0.0080 recon 0.0057 | align 0.0004 cycle 0.0003 ground 0.0005
+step   750 | loss 0.0214 | dyn 0.0130 rew 0.0001 recon 0.0021 | align 0.0004 cycle 0.0006 ground 0.0010
+step  1000 | loss 0.0322 | dyn 0.0173 rew 0.0081 recon 0.0007 | align 0.0004 cycle 0.0008 ground 0.0011
+step  1250 | loss 0.0375 | dyn 0.0165 rew 0.0154 recon 0.0001 | align 0.0003 cycle 0.0012 ground 0.0018
+step  1500 | loss 0.0382 | dyn 0.0097 rew 0.0234 recon 0.0002 | align 0.0004 cycle 0.0025 ground 0.0062
+step  1750 | loss 0.0197 | dyn 0.0072 rew 0.0078 recon 0.0001 | align 0.0003 cycle 0.0026 ground 0.0081
+step  2000 | loss 0.0119 | dyn 0.0012 rew 0.0083 recon 0.0000 | align 0.0002 cycle 0.0020 ground 0.0075
+step  2250 | loss 0.0026 | dyn 0.0003 rew 0.0004 recon 0.0000 | align 0.0001 cycle 0.0014 ground 0.0073
+
+=== METRICS ===
+{
+  "score": 0.49139999999999995,
+  "success_rate_guided": 0.7,
+  "success_rate_unguided": 0.1,
+  "guidance_gain": 0.6,
+  "avg_steps_guided": 20.86,
+  "avg_steps_unguided": 46.66,
+  "avg_reward_guided": 0.49839999999999995,
+  "align_cosine_heldout": 0.999925434589386,
+  "final_loss": 0.016995778307318687,
+  "wall_time_sec": 28.94
+}
+
+primary score = 0.4914  ->  runs/trial_0030/metrics.json
+step     0 | loss 0.1565 | dyn 0.0063 rew 0.0158 recon 0.0185 | align 1.1176 cycle 0.0147 ground 0.0144
+step   100 | loss 0.0174 | dyn 0.0002 rew 0.0003 recon 0.0135 | align 0.0957 cycle 0.0014 ground 0.0001
+step   200 | loss 0.0157 | dyn 0.0004 rew 0.0079 recon 0.0122 | align 0.0026 cycle 0.0012 ground 0.0001
+step   300 | loss 0.0224 | dyn 0.0002 rew 0.0156 recon 0.0116 | align 0.0004 cycle 0.0004 ground 0.0000
+step   400 | loss 0.0065 | dyn 0.0002 rew 0.0002 recon 0.0108 | align 0.0003 cycle 0.0002 ground 0.0000
+step   500 | loss 0.0145 | dyn 0.0002 rew 0.0081 recon 0.0109 | align 0.0002 cycle 0.0002 ground 0.0001
+step   600 | loss 0.0056 | dyn 0.0003 rew 0.0001 recon 0.0087 | align 0.0002 cycle 0.0002 ground 0.0001
+step   700 | loss 0.0207 | dyn 0.0005 rew 0.0159 recon 0.0071 | align 0.0003 cycle 0.0002 ground 0.0001
+step   800 | loss 0.0040 | dyn 0.0007 rew 0.0001 recon 0.0045 | align 0.0003 cycle 0.0002 ground 0.0001
+step   900 | loss 0.0110 | dyn 0.0010 rew 0.0079 recon 0.0024 | align 0.0002 cycle 0.0002 ground 0.0002
+
+=== METRICS ===
+{
+  "score": -0.06220000000000003,
+  "success_rate_guided": 0.3,
+  "success_rate_unguided": 0.1,
+  "guidance_gain": 0.19999999999999998,
+  "avg_steps_guided": 36.22,
+  "avg_steps_unguided": 45.26,
+  "avg_reward_guided": -0.05920000000000014,
+  "align_cosine_heldout": 0.9997938871383667,
+  "final_loss": 0.010793597437441349,
+  "wall_time_sec": 9.54
+}
+
+primary score = -0.0622  ->  runs/trial_0031/metrics.json
+step     0 | loss 0.5703 | dyn 0.0034 rew 0.0036 recon 0.0172 | align 1.1068 cycle 0.0063 ground 0.0067
+step   250 | loss 0.0206 | dyn 0.0068 rew 0.0079 recon 0.0061 | align 0.0005 cycle 0.0157 ground 0.0002
+step   500 | loss 0.0206 | dyn 0.0074 rew 0.0079 recon 0.0043 | align 0.0004 cycle 0.0051 ground 0.0004
+step   750 | loss 0.0334 | dyn 0.0055 rew 0.0006 recon 0.0007 | align 0.0006 cycle 0.0236 ground 0.0142
+step  1000 | loss 0.0419 | dyn 0.0002 rew 0.0090 recon 0.0000 | align 0.0001 cycle 0.0281 ground 0.0183
+step  1250 | loss 0.0360 | dyn 0.0002 rew 0.0155 recon 0.0000 | align 0.0001 cycle 0.0169 ground 0.0113
+step  1500 | loss 0.0408 | dyn 0.0001 rew 0.0233 recon 0.0000 | align 0.0001 cycle 0.0147 ground 0.0097
+step  1750 | loss 0.0233 | dyn 0.0002 rew 0.0078 recon 0.0001 | align 0.0001 cycle 0.0112 ground 0.0085
+step  2000 | loss 0.0220 | dyn 0.0003 rew 0.0082 recon 0.0002 | align 0.0002 cycle 0.0114 ground 0.0075
+step  2250 | loss 0.0152 | dyn 0.0003 rew 0.0005 recon 0.0001 | align 0.0001 cycle 0.0103 ground 0.0080
+
+=== METRICS ===
+{
+  "score": 0.5476,
+  "success_rate_guided": 0.74,
+  "success_rate_unguided": 0.14,
+  "guidance_gain": 0.6,
+  "avg_steps_guided": 19.24,
+  "avg_steps_unguided": 44.16,
+  "avg_reward_guided": 0.5549999999999999,
+  "align_cosine_heldout": 0.9999133348464966,
+  "final_loss": 0.028768857941031456,
+  "wall_time_sec": 23.39
+}
+
+primary score = 0.5476  ->  runs/trial_0032/metrics.json
+step     0 | loss 1.0318 | dyn 0.0034 rew 0.0036 recon 0.0172 | align 1.0223 cycle 0.0066 ground 0.0063
+step   250 | loss 0.0318 | dyn 0.0093 rew 0.0080 recon 0.0057 | align 0.0003 cycle 0.0002 ground 0.0019
+step   500 | loss 0.0271 | dyn 0.0110 rew 0.0079 recon 0.0013 | align 0.0003 cycle 0.0008 ground 0.0009
+step   750 | loss 0.0087 | dyn 0.0050 rew 0.0001 recon 0.0001 | align 0.0001 cycle 0.0018 ground 0.0018
+step  1000 | loss 0.0118 | dyn 0.0017 rew 0.0084 recon 0.0001 | align 0.0001 cycle 0.0018 ground 0.0018
+step  1250 | loss 0.0164 | dyn 0.0002 rew 0.0156 recon 0.0000 | align 0.0000 cycle 0.0012 ground 0.0012
+step  1500 | loss 0.0240 | dyn 0.0001 rew 0.0234 recon 0.0001 | align 0.0000 cycle 0.0007 ground 0.0007
+step  1750 | loss 0.0083 | dyn 0.0001 rew 0.0078 recon 0.0000 | align 0.0000 cycle 0.0005 ground 0.0006
+step  2000 | loss 0.0083 | dyn 0.0001 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0004 ground 0.0005
+step  2250 | loss 0.0007 | dyn 0.0001 rew 0.0003 recon 0.0000 | align 0.0000 cycle 0.0004 ground 0.0005
+
+=== METRICS ===
+{
+  "score": -0.02260000000000001,
+  "success_rate_guided": 0.36,
+  "success_rate_unguided": 0.1,
+  "guidance_gain": 0.26,
+  "avg_steps_guided": 38.26,
+  "avg_steps_unguided": 45.94,
+  "avg_reward_guided": -0.019000000000000145,
+  "align_cosine_heldout": 0.9999703168869019,
+  "final_loss": 0.015659816563129425,
+  "wall_time_sec": 26.76
+}
+
+primary score = -0.0226  ->  runs/trial_0033/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 42.93
+}
+
+primary score = -0.3030  ->  runs/trial_0034_control/metrics.json
+step     0 | loss 0.7196 | dyn 0.0014 rew 0.0026 recon 0.0150 | align 0.9389 cycle 0.0030 ground 0.0032
+step   150 | loss 0.0038 | dyn 0.0017 rew 0.0000 recon 0.0110 | align 0.0000 cycle 0.0002 ground 0.0001
+step   300 | loss 0.0185 | dyn 0.0018 rew 0.0155 recon 0.0061 | align 0.0000 cycle 0.0002 ground 0.0000
+step   450 | loss 0.0100 | dyn 0.0016 rew 0.0078 recon 0.0027 | align 0.0000 cycle 0.0001 ground 0.0001
+step   600 | loss 0.0019 | dyn 0.0013 rew 0.0003 recon 0.0013 | align 0.0000 cycle 0.0001 ground 0.0001
+step   750 | loss 0.0014 | dyn 0.0011 rew 0.0001 recon 0.0004 | align 0.0000 cycle 0.0001 ground 0.0001
+step   900 | loss 0.0090 | dyn 0.0010 rew 0.0079 recon 0.0001 | align 0.0000 cycle 0.0001 ground 0.0001
+step  1050 | loss 0.0010 | dyn 0.0008 rew 0.0001 recon 0.0001 | align 0.0000 cycle 0.0001 ground 0.0000
+step  1200 | loss 0.0088 | dyn 0.0007 rew 0.0079 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  1350 | loss 0.0087 | dyn 0.0007 rew 0.0078 recon 0.0001 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": -0.09799999999999998,
+  "success_rate_guided": 0.28,
+  "success_rate_unguided": 0.2,
+  "guidance_gain": 0.08000000000000002,
+  "avg_steps_guided": 37.8,
+  "avg_steps_unguided": 41.5,
+  "avg_reward_guided": -0.09520000000000016,
+  "align_cosine_heldout": 0.9999918341636658,
+  "final_loss": 0.008679761551320553,
+  "wall_time_sec": 32.13
+}
+
+primary score = -0.0980  ->  runs/trial_0035/metrics.json
+step     0 | loss 0.0686 | dyn 0.0058 rew 0.0003 recon 0.0200 | align 0.8729 cycle 0.0140 ground 0.0143
+step   150 | loss 0.0154 | dyn 0.0005 rew 0.0000 recon 0.0091 | align 0.0652 cycle 0.0004 ground 0.0004
+step   300 | loss 0.0241 | dyn 0.0008 rew 0.0155 recon 0.0046 | align 0.0148 cycle 0.0004 ground 0.0005
+step   450 | loss 0.0122 | dyn 0.0010 rew 0.0079 recon 0.0016 | align 0.0088 cycle 0.0004 ground 0.0006
+step   600 | loss 0.0020 | dyn 0.0009 rew 0.0001 recon 0.0001 | align 0.0067 cycle 0.0003 ground 0.0005
+step   750 | loss 0.0014 | dyn 0.0008 rew 0.0000 recon 0.0000 | align 0.0050 cycle 0.0002 ground 0.0004
+step   900 | loss 0.0089 | dyn 0.0007 rew 0.0077 recon 0.0001 | align 0.0037 cycle 0.0001 ground 0.0003
+step  1050 | loss 0.0011 | dyn 0.0007 rew 0.0001 recon 0.0000 | align 0.0029 cycle 0.0001 ground 0.0002
+step  1200 | loss 0.0089 | dyn 0.0007 rew 0.0079 recon 0.0000 | align 0.0026 cycle 0.0001 ground 0.0002
+step  1350 | loss 0.0087 | dyn 0.0006 rew 0.0078 recon 0.0000 | align 0.0027 cycle 0.0001 ground 0.0002
+
+=== METRICS ===
+{
+  "score": -0.24560000000000004,
+  "success_rate_guided": 0.18,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.06,
+  "avg_steps_guided": 42.56,
+  "avg_steps_unguided": 44.46,
+  "avg_reward_guided": -0.24380000000000013,
+  "align_cosine_heldout": 0.9975098967552185,
+  "final_loss": 0.008772730827331543,
+  "wall_time_sec": 16.26
+}
+
+primary score = -0.2456  ->  runs/trial_0036/metrics.json
+step     0 | loss 0.4508 | dyn 0.0063 rew 0.0158 recon 0.0185 | align 1.0298 cycle 0.0106 ground 0.0111
+step   150 | loss 0.0477 | dyn 0.0028 rew 0.0000 recon 0.0129 | align 0.0790 cycle 0.0018 ground 0.0017
+step   300 | loss 0.0285 | dyn 0.0014 rew 0.0157 recon 0.0115 | align 0.0002 cycle 0.0000 ground 0.0001
+step   450 | loss 0.0191 | dyn 0.0024 rew 0.0079 recon 0.0091 | align 0.0002 cycle 0.0002 ground 0.0002
+step   600 | loss 0.0078 | dyn 0.0033 rew 0.0001 recon 0.0050 | align 0.0004 cycle 0.0002 ground 0.0004
+step   750 | loss 0.0068 | dyn 0.0034 rew 0.0001 recon 0.0040 | align 0.0006 cycle 0.0002 ground 0.0003
+step   900 | loss 0.0139 | dyn 0.0041 rew 0.0079 recon 0.0028 | align 0.0005 cycle 0.0004 ground 0.0004
+step  1050 | loss 0.0051 | dyn 0.0042 rew 0.0000 recon 0.0017 | align 0.0003 cycle 0.0004 ground 0.0005
+step  1200 | loss 0.0127 | dyn 0.0048 rew 0.0080 recon 0.0010 | align 0.0006 cycle 0.0004 ground 0.0005
+step  1350 | loss 0.0122 | dyn 0.0051 rew 0.0080 recon 0.0004 | align 0.0003 cycle 0.0004 ground 0.0005
+
+=== METRICS ===
+{
+  "score": -0.18020000000000005,
+  "success_rate_guided": 0.22,
+  "success_rate_unguided": 0.16,
+  "guidance_gain": 0.06,
+  "avg_steps_guided": 40.02,
+  "avg_steps_unguided": 42.46,
+  "avg_reward_guided": -0.17800000000000019,
+  "align_cosine_heldout": 0.9995627999305725,
+  "final_loss": 0.012012611143290997,
+  "wall_time_sec": 11.96
+}
+
+primary score = -0.1802  ->  runs/trial_0037/metrics.json
+step     0 | loss 0.2874 | dyn 0.0014 rew 0.0026 recon 0.0150 | align 0.9389 cycle 0.0030 ground 0.0032
+step   150 | loss 0.0096 | dyn 0.0008 rew 0.0000 recon 0.0110 | align 0.0001 cycle 0.0003 ground 0.0001
+step   300 | loss 0.0223 | dyn 0.0009 rew 0.0155 recon 0.0071 | align 0.0002 cycle 0.0004 ground 0.0002
+step   450 | loss 0.0111 | dyn 0.0012 rew 0.0078 recon 0.0022 | align 0.0001 cycle 0.0004 ground 0.0002
+step   600 | loss 0.0018 | dyn 0.0011 rew 0.0002 recon 0.0002 | align 0.0000 cycle 0.0002 ground 0.0002
+step   750 | loss 0.0013 | dyn 0.0010 rew 0.0000 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0001
+step   900 | loss 0.0089 | dyn 0.0009 rew 0.0077 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  1050 | loss 0.0011 | dyn 0.0008 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  1200 | loss 0.0088 | dyn 0.0007 rew 0.0079 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  1350 | loss 0.0087 | dyn 0.0007 rew 0.0078 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+
+=== METRICS ===
+{
+  "score": -0.2072,
+  "success_rate_guided": 0.2,
+  "success_rate_unguided": 0.16,
+  "guidance_gain": 0.04000000000000001,
+  "avg_steps_guided": 40.72,
+  "avg_steps_unguided": 42.54,
+  "avg_reward_guided": -0.20520000000000016,
+  "align_cosine_heldout": 0.9999894499778748,
+  "final_loss": 0.008717476390302181,
+  "wall_time_sec": 21.74
+}
+
+primary score = -0.2072  ->  runs/trial_0038/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.33
+}
+
+primary score = -0.3030  ->  runs/trial_0039_control/metrics.json
+step     0 | loss 0.9310 | dyn 0.0063 rew 0.0158 recon 0.0185 | align 1.1176 cycle 0.0147 ground 0.0144
+step   100 | loss 0.0789 | dyn 0.0004 rew 0.0003 recon 0.0135 | align 0.0961 cycle 0.0006 ground 0.0003
+step   200 | loss 0.0267 | dyn 0.0038 rew 0.0079 recon 0.0121 | align 0.0170 cycle 0.0012 ground 0.0010
+step   300 | loss 0.0191 | dyn 0.0029 rew 0.0156 recon 0.0114 | align 0.0001 cycle 0.0001 ground 0.0001
+step   400 | loss 0.0029 | dyn 0.0022 rew 0.0002 recon 0.0095 | align 0.0001 cycle 0.0000 ground 0.0000
+step   500 | loss 0.0105 | dyn 0.0023 rew 0.0080 recon 0.0075 | align 0.0001 cycle 0.0000 ground 0.0000
+step   600 | loss 0.0023 | dyn 0.0019 rew 0.0002 recon 0.0055 | align 0.0001 cycle 0.0000 ground 0.0000
+step   700 | loss 0.0179 | dyn 0.0019 rew 0.0159 recon 0.0057 | align 0.0000 cycle 0.0000 ground 0.0000
+step   800 | loss 0.0022 | dyn 0.0019 rew 0.0001 recon 0.0054 | align 0.0000 cycle 0.0000 ground 0.0000
+step   900 | loss 0.0099 | dyn 0.0018 rew 0.0079 recon 0.0058 | align 0.0000 cycle 0.0000 ground 0.0000
+
+=== METRICS ===
+{
+  "score": -0.034399999999999986,
+  "success_rate_guided": 0.32,
+  "success_rate_unguided": 0.16,
+  "guidance_gain": 0.16,
+  "avg_steps_guided": 35.44,
+  "avg_steps_unguided": 43.34,
+  "avg_reward_guided": -0.031200000000000144,
+  "align_cosine_heldout": 0.9999659061431885,
+  "final_loss": 0.010060297325253487,
+  "wall_time_sec": 12.22
+}
+
+primary score = -0.0344  ->  runs/trial_0040/metrics.json
+step     0 | loss 0.7487 | dyn 0.0017 rew 0.0000 recon 0.0152 | align 0.9687 cycle 0.0018 ground 0.0021
+step   150 | loss 0.0083 | dyn 0.0018 rew 0.0000 recon 0.0112 | align 0.0001 cycle 0.0001 ground 0.0001
+step   300 | loss 0.0232 | dyn 0.0026 rew 0.0156 recon 0.0058 | align 0.0002 cycle 0.0001 ground 0.0001
+step   450 | loss 0.0147 | dyn 0.0027 rew 0.0078 recon 0.0037 | align 0.0002 cycle 0.0001 ground 0.0001
+step   600 | loss 0.0066 | dyn 0.0028 rew 0.0003 recon 0.0023 | align 0.0001 cycle 0.0001 ground 0.0002
+step   750 | loss 0.0062 | dyn 0.0029 rew 0.0001 recon 0.0010 | align 0.0001 cycle 0.0002 ground 0.0002
+step   900 | loss 0.0135 | dyn 0.0029 rew 0.0078 recon 0.0003 | align 0.0001 cycle 0.0002 ground 0.0002
+step  1050 | loss 0.0056 | dyn 0.0025 rew 0.0001 recon 0.0003 | align 0.0001 cycle 0.0002 ground 0.0009
+step  1200 | loss 0.0143 | dyn 0.0020 rew 0.0081 recon 0.0003 | align 0.0004 cycle 0.0003 ground 0.0030
+step  1350 | loss 0.0128 | dyn 0.0012 rew 0.0080 recon 0.0002 | align 0.0003 cycle 0.0005 ground 0.0035
+
+=== METRICS ===
+{
+  "score": -0.005599999999999994,
+  "success_rate_guided": 0.34,
+  "success_rate_unguided": 0.02,
+  "guidance_gain": 0.32,
+  "avg_steps_guided": 34.56,
+  "avg_steps_unguided": 49.52,
+  "avg_reward_guided": -0.002200000000000144,
+  "align_cosine_heldout": 0.9999296069145203,
+  "final_loss": 0.010351786389946938,
+  "wall_time_sec": 24.44
+}
+
+primary score = -0.0056  ->  runs/trial_0041/metrics.json
+step     0 | loss 0.1282 | dyn 0.0063 rew 0.0158 recon 0.0185 | align 1.1176 cycle 0.0147 ground 0.0144
+step   250 | loss 0.0222 | dyn 0.0008 rew 0.0079 recon 0.0127 | align 0.0297 cycle 0.0008 ground 0.0003
+step   500 | loss 0.0185 | dyn 0.0003 rew 0.0080 recon 0.0116 | align 0.0005 cycle 0.0002 ground 0.0001
+step   750 | loss 0.0092 | dyn 0.0003 rew 0.0000 recon 0.0098 | align 0.0006 cycle 0.0002 ground 0.0002
+step  1000 | loss 0.0166 | dyn 0.0004 rew 0.0081 recon 0.0089 | align 0.0006 cycle 0.0003 ground 0.0002
+step  1250 | loss 0.0227 | dyn 0.0004 rew 0.0156 recon 0.0073 | align 0.0004 cycle 0.0003 ground 0.0002
+step  1500 | loss 0.0292 | dyn 0.0005 rew 0.0234 recon 0.0056 | align 0.0004 cycle 0.0003 ground 0.0002
+step  1750 | loss 0.0126 | dyn 0.0006 rew 0.0079 recon 0.0042 | align 0.0003 cycle 0.0003 ground 0.0002
+step  2000 | loss 0.0125 | dyn 0.0008 rew 0.0081 recon 0.0036 | align 0.0005 cycle 0.0004 ground 0.0003
+step  2250 | loss 0.0042 | dyn 0.0014 rew 0.0002 recon 0.0024 | align 0.0003 cycle 0.0003 ground 0.0003
+
+=== METRICS ===
+{
+  "score": -0.3264,
+  "success_rate_guided": 0.12,
+  "success_rate_unguided": 0.08,
+  "guidance_gain": 0.039999999999999994,
+  "avg_steps_guided": 44.64,
+  "avg_steps_unguided": 46.44,
+  "avg_reward_guided": -0.32520000000000016,
+  "align_cosine_heldout": 0.9995937347412109,
+  "final_loss": 0.018883520737290382,
+  "wall_time_sec": 19.1
+}
+
+primary score = -0.3264  ->  runs/trial_0042/metrics.json
+step     0 | loss 0.3119 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 0.8837 cycle 0.0028 ground 0.0030
+step   100 | loss 0.0111 | dyn 0.0023 rew 0.0003 recon 0.0099 | align 0.0003 cycle 0.0012 ground 0.0002
+step   200 | loss 0.0148 | dyn 0.0038 rew 0.0081 recon 0.0021 | align 0.0003 cycle 0.0005 ground 0.0003
+step   300 | loss 0.0192 | dyn 0.0025 rew 0.0157 recon 0.0002 | align 0.0002 cycle 0.0003 ground 0.0002
+step   400 | loss 0.0028 | dyn 0.0018 rew 0.0002 recon 0.0001 | align 0.0001 cycle 0.0002 ground 0.0002
+step   500 | loss 0.0105 | dyn 0.0018 rew 0.0079 recon 0.0001 | align 0.0001 cycle 0.0003 ground 0.0002
+step   600 | loss 0.0021 | dyn 0.0013 rew 0.0003 recon 0.0001 | align 0.0001 cycle 0.0002 ground 0.0002
+step   700 | loss 0.0177 | dyn 0.0013 rew 0.0157 recon 0.0001 | align 0.0001 cycle 0.0003 ground 0.0003
+step   800 | loss 0.0018 | dyn 0.0010 rew 0.0002 recon 0.0001 | align 0.0001 cycle 0.0004 ground 0.0004
+step   900 | loss 0.0094 | dyn 0.0008 rew 0.0078 recon 0.0001 | align 0.0001 cycle 0.0007 ground 0.0005
+
+=== METRICS ===
+{
+  "score": -0.2354,
+  "success_rate_guided": 0.18,
+  "success_rate_unguided": 0.04,
+  "guidance_gain": 0.13999999999999999,
+  "avg_steps_guided": 41.54,
+  "avg_steps_unguided": 48.08,
+  "avg_reward_guided": -0.23360000000000014,
+  "align_cosine_heldout": 0.9999043941497803,
+  "final_loss": 0.009365640580654144,
+  "wall_time_sec": 18.7
+}
+
+primary score = -0.2354  ->  runs/trial_0043/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.91
+}
+
+primary score = -0.3030  ->  runs/trial_0044_control/metrics.json
+step     0 | loss 0.6689 | dyn 0.0027 rew 0.0015 recon 0.0166 | align 1.1807 cycle 0.0062 ground 0.0064
+step   100 | loss 0.0259 | dyn 0.0042 rew 0.0003 recon 0.0118 | align 0.0121 cycle 0.0026 ground 0.0013
+step   200 | loss 0.0212 | dyn 0.0034 rew 0.0079 recon 0.0081 | align 0.0002 cycle 0.0006 ground 0.0002
+step   300 | loss 0.0236 | dyn 0.0042 rew 0.0156 recon 0.0026 | align 0.0002 cycle 0.0009 ground 0.0004
+step   400 | loss 0.0053 | dyn 0.0035 rew 0.0003 recon 0.0005 | align 0.0002 cycle 0.0006 ground 0.0004
+step   500 | loss 0.0126 | dyn 0.0036 rew 0.0080 recon 0.0001 | align 0.0001 cycle 0.0005 ground 0.0004
+step   600 | loss 0.0037 | dyn 0.0024 rew 0.0003 recon 0.0001 | align 0.0001 cycle 0.0006 ground 0.0006
+step   700 | loss 0.0190 | dyn 0.0023 rew 0.0157 recon 0.0000 | align 0.0001 cycle 0.0007 ground 0.0008
+step   800 | loss 0.0029 | dyn 0.0017 rew 0.0002 recon 0.0001 | align 0.0001 cycle 0.0009 ground 0.0011
+step   900 | loss 0.0103 | dyn 0.0012 rew 0.0079 recon 0.0001 | align 0.0002 cycle 0.0011 ground 0.0014
+
+=== METRICS ===
+{
+  "score": -0.2344,
+  "success_rate_guided": 0.18,
+  "success_rate_unguided": 0.02,
+  "guidance_gain": 0.16,
+  "avg_steps_guided": 41.44,
+  "avg_steps_unguided": 49.02,
+  "avg_reward_guided": -0.2326000000000001,
+  "align_cosine_heldout": 0.9999451637268066,
+  "final_loss": 0.009878325276076794,
+  "wall_time_sec": 12.16
+}
+
+primary score = -0.2344  ->  runs/trial_0045/metrics.json
+step     0 | loss 0.6450 | dyn 0.0061 rew 0.0184 recon 0.0205 | align 0.8059 cycle 0.0132 ground 0.0138
+step   250 | loss 0.0238 | dyn 0.0013 rew 0.0079 recon 0.0113 | align 0.0001 cycle 0.0003 ground 0.0001
+step   500 | loss 0.0181 | dyn 0.0023 rew 0.0080 recon 0.0057 | align 0.0001 cycle 0.0001 ground 0.0001
+step   750 | loss 0.0055 | dyn 0.0025 rew 0.0000 recon 0.0017 | align 0.0001 cycle 0.0003 ground 0.0003
+step  1000 | loss 0.0114 | dyn 0.0025 rew 0.0081 recon 0.0001 | align 0.0001 cycle 0.0002 ground 0.0003
+step  1250 | loss 0.0182 | dyn 0.0021 rew 0.0155 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step  1500 | loss 0.0260 | dyn 0.0019 rew 0.0235 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0001
+step  1750 | loss 0.0103 | dyn 0.0018 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  2000 | loss 0.0100 | dyn 0.0015 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0001 ground 0.0001
+step  2250 | loss 0.0024 | dyn 0.0018 rew 0.0002 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+
+=== METRICS ===
+{
+  "score": 0.0232,
+  "success_rate_guided": 0.36,
+  "success_rate_unguided": 0.16,
+  "guidance_gain": 0.19999999999999998,
+  "avg_steps_guided": 33.68,
+  "avg_steps_unguided": 42.58,
+  "avg_reward_guided": 0.026799999999999845,
+  "align_cosine_heldout": 0.9999827146530151,
+  "final_loss": 0.017106974497437477,
+  "wall_time_sec": 15.32
+}
+
+primary score = 0.0232  ->  runs/trial_0046/metrics.json
+step     0 | loss 0.7977 | dyn 0.0061 rew 0.0184 recon 0.0205 | align 0.9684 cycle 0.0119 ground 0.0114
+step   150 | loss 0.0587 | dyn 0.0036 rew 0.0000 recon 0.0121 | align 0.0414 cycle 0.0025 ground 0.0021
+step   300 | loss 0.0361 | dyn 0.0037 rew 0.0156 recon 0.0095 | align 0.0003 cycle 0.0005 ground 0.0003
+step   450 | loss 0.0212 | dyn 0.0072 rew 0.0078 recon 0.0037 | align 0.0003 cycle 0.0007 ground 0.0004
+step   600 | loss 0.0087 | dyn 0.0069 rew 0.0002 recon 0.0010 | align 0.0002 cycle 0.0007 ground 0.0006
+step   750 | loss 0.0067 | dyn 0.0069 rew 0.0001 recon 0.0001 | align 0.0001 cycle 0.0005 ground 0.0004
+step   900 | loss 0.0133 | dyn 0.0060 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0003
+step  1050 | loss 0.0049 | dyn 0.0053 rew 0.0001 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0002
+step  1200 | loss 0.0126 | dyn 0.0050 rew 0.0080 recon 0.0000 | align 0.0002 cycle 0.0002 ground 0.0002
+step  1350 | loss 0.0119 | dyn 0.0045 rew 0.0078 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+
+=== METRICS ===
+{
+  "score": -0.2652,
+  "success_rate_guided": 0.16,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.04000000000000001,
+  "avg_steps_guided": 42.52,
+  "avg_steps_unguided": 44.36,
+  "avg_reward_guided": -0.2636000000000001,
+  "align_cosine_heldout": 0.999923586845398,
+  "final_loss": 0.011836225166916847,
+  "wall_time_sec": 13.7
+}
+
+primary score = -0.2652  ->  runs/trial_0047/metrics.json
+step     0 | loss 1.0175 | dyn 0.0031 rew 0.0061 recon 0.0166 | align 1.0961 cycle 0.0075 ground 0.0070
+step   150 | loss 0.0185 | dyn 0.0026 rew 0.0000 recon 0.0105 | align 0.0002 cycle 0.0006 ground 0.0002
+step   300 | loss 0.0307 | dyn 0.0050 rew 0.0156 recon 0.0043 | align 0.0002 cycle 0.0011 ground 0.0002
+step   450 | loss 0.0179 | dyn 0.0044 rew 0.0078 recon 0.0011 | align 0.0002 cycle 0.0009 ground 0.0004
+step   600 | loss 0.0085 | dyn 0.0039 rew 0.0004 recon 0.0001 | align 0.0002 cycle 0.0008 ground 0.0005
+step   750 | loss 0.0080 | dyn 0.0030 rew 0.0001 recon 0.0002 | align 0.0002 cycle 0.0016 ground 0.0015
+step   900 | loss 0.0134 | dyn 0.0009 rew 0.0083 recon 0.0001 | align 0.0001 cycle 0.0023 ground 0.0023
+step  1050 | loss 0.0032 | dyn 0.0001 rew 0.0001 recon 0.0001 | align 0.0001 cycle 0.0017 ground 0.0019
+step  1200 | loss 0.0102 | dyn 0.0001 rew 0.0080 recon 0.0000 | align 0.0001 cycle 0.0012 ground 0.0013
+step  1350 | loss 0.0100 | dyn 0.0001 rew 0.0080 recon 0.0000 | align 0.0001 cycle 0.0010 ground 0.0012
+
+=== METRICS ===
+{
+  "score": -0.1772,
+  "success_rate_guided": 0.22,
+  "success_rate_unguided": 0.06,
+  "guidance_gain": 0.16,
+  "avg_steps_guided": 39.72,
+  "avg_steps_unguided": 47.14,
+  "avg_reward_guided": -0.17500000000000016,
+  "align_cosine_heldout": 0.9999648928642273,
+  "final_loss": 0.00942387618124485,
+  "wall_time_sec": 13.6
+}
+
+primary score = -0.1772  ->  runs/trial_0048/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974764421582222,
+  "final_loss": 0.017006561160087585,
+  "wall_time_sec": 38.85
+}
+
+primary score = -0.3030  ->  runs/trial_0049_control/metrics.json
+step     0 | loss 0.3159 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 0.8837 cycle 0.0028 ground 0.0030
+step   250 | loss 0.0245 | dyn 0.0011 rew 0.0078 recon 0.0109 | align 0.0002 cycle 0.0001 ground 0.0001
+step   500 | loss 0.0198 | dyn 0.0053 rew 0.0080 recon 0.0033 | align 0.0005 cycle 0.0008 ground 0.0005
+step   750 | loss 0.0089 | dyn 0.0065 rew 0.0000 recon 0.0003 | align 0.0004 cycle 0.0004 ground 0.0005
+step  1000 | loss 0.0163 | dyn 0.0065 rew 0.0081 recon 0.0000 | align 0.0002 cycle 0.0003 ground 0.0003
+step  1250 | loss 0.0226 | dyn 0.0058 rew 0.0154 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0003
+step  1500 | loss 0.0303 | dyn 0.0054 rew 0.0235 recon 0.0000 | align 0.0001 cycle 0.0002 ground 0.0003
+step  1750 | loss 0.0152 | dyn 0.0056 rew 0.0079 recon 0.0000 | align 0.0001 cycle 0.0004 ground 0.0004
+step  2000 | loss 0.0135 | dyn 0.0036 rew 0.0080 recon 0.0000 | align 0.0001 cycle 0.0007 ground 0.0008
+step  2250 | loss 0.0053 | dyn 0.0019 rew 0.0003 recon 0.0000 | align 0.0001 cycle 0.0014 ground 0.0019
+
+=== METRICS ===
+{
+  "score": 0.35419999999999996,
+  "success_rate_guided": 0.6,
+  "success_rate_unguided": 0.16,
+  "guidance_gain": 0.43999999999999995,
+  "avg_steps_guided": 24.58,
+  "avg_steps_unguided": 44.82,
+  "avg_reward_guided": 0.36019999999999996,
+  "align_cosine_heldout": 0.9999501705169678,
+  "final_loss": 0.01804632693529129,
+  "wall_time_sec": 39.33
+}
+
+primary score = 0.3542  ->  runs/trial_0050/metrics.json
+step     0 | loss 0.2136 | dyn 0.0017 rew 0.0003 recon 0.0159 | align 1.0658 cycle 0.0027 ground 0.0029
+step   100 | loss 0.0161 | dyn 0.0026 rew 0.0003 recon 0.0121 | align 0.0243 cycle 0.0015 ground 0.0012
+step   200 | loss 0.0178 | dyn 0.0021 rew 0.0079 recon 0.0116 | align 0.0002 cycle 0.0000 ground 0.0001
+step   300 | loss 0.0256 | dyn 0.0023 rew 0.0155 recon 0.0113 | align 0.0002 cycle 0.0001 ground 0.0001
+step   400 | loss 0.0101 | dyn 0.0029 rew 0.0003 recon 0.0091 | align 0.0003 cycle 0.0001 ground 0.0002
+step   500 | loss 0.0228 | dyn 0.0073 rew 0.0079 recon 0.0057 | align 0.0009 cycle 0.0003 ground 0.0006
+step   600 | loss 0.0152 | dyn 0.0080 rew 0.0003 recon 0.0036 | align 0.0012 cycle 0.0004 ground 0.0012
+step   700 | loss 0.0344 | dyn 0.0104 rew 0.0160 recon 0.0031 | align 0.0010 cycle 0.0004 ground 0.0016
+step   800 | loss 0.0173 | dyn 0.0098 rew 0.0001 recon 0.0026 | align 0.0010 cycle 0.0006 ground 0.0015
+step   900 | loss 0.0275 | dyn 0.0116 rew 0.0078 recon 0.0017 | align 0.0014 cycle 0.0010 ground 0.0027
+
+=== METRICS ===
+{
+  "score": 0.16579999999999995,
+  "success_rate_guided": 0.48,
+  "success_rate_unguided": 0.32,
+  "guidance_gain": 0.15999999999999998,
+  "avg_steps_guided": 31.42,
+  "avg_steps_unguided": 39.36,
+  "avg_reward_guided": 0.1705999999999999,
+  "align_cosine_heldout": 0.9918325543403625,
+  "final_loss": 0.03192872181534767,
+  "wall_time_sec": 471.49
+}
+
+primary score = 0.1658  ->  runs/trial_0051/metrics.json
+step     0 | loss 0.3696 | dyn 0.0025 rew 0.0034 recon 0.0170 | align 0.9517 cycle 0.0067 ground 0.0072
+step   150 | loss 0.0189 | dyn 0.0017 rew 0.0001 recon 0.0094 | align 0.0004 cycle 0.0003 ground 0.0003
+step   300 | loss 0.0220 | dyn 0.0048 rew 0.0157 recon 0.0011 | align 0.0003 cycle 0.0005 ground 0.0005
+step   450 | loss 0.0108 | dyn 0.0032 rew 0.0078 recon 0.0000 | align 0.0001 cycle 0.0003 ground 0.0003
+step   600 | loss 0.0025 | dyn 0.0023 rew 0.0002 recon 0.0001 | align 0.0001 cycle 0.0002 ground 0.0002
+step   750 | loss 0.0021 | dyn 0.0021 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0002 ground 0.0002
+step   900 | loss 0.0095 | dyn 0.0017 rew 0.0077 recon 0.0001 | align 0.0000 cycle 0.0003 ground 0.0003
+step  1050 | loss 0.0015 | dyn 0.0011 rew 0.0001 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+step  1200 | loss 0.0091 | dyn 0.0007 rew 0.0080 recon 0.0000 | align 0.0000 cycle 0.0003 ground 0.0003
+step  1350 | loss 0.0088 | dyn 0.0005 rew 0.0077 recon 0.0001 | align 0.0000 cycle 0.0003 ground 0.0003
+
+=== METRICS ===
+{
+  "score": -0.355,
+  "success_rate_guided": 0.1,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": -0.01999999999999999,
+  "avg_steps_guided": 45.5,
+  "avg_steps_unguided": 44.68,
+  "avg_reward_guided": -0.3540000000000002,
+  "align_cosine_heldout": 0.9999802708625793,
+  "final_loss": 0.0086473748087883,
+  "wall_time_sec": 135.38
+}
+
+primary score = -0.3550  ->  runs/trial_0052/metrics.json
+step     0 | loss 0.8767 | dyn 0.0027 rew 0.0015 recon 0.0166 | align 0.8967 cycle 0.0049 ground 0.0048
+step   100 | loss 0.0877 | dyn 0.0017 rew 0.0003 recon 0.0130 | align 0.0799 cycle 0.0016 ground 0.0014
+step   200 | loss 0.0183 | dyn 0.0030 rew 0.0080 recon 0.0115 | align 0.0001 cycle 0.0003 ground 0.0001
+step   300 | loss 0.0252 | dyn 0.0032 rew 0.0156 recon 0.0099 | align 0.0001 cycle 0.0001 ground 0.0001
+step   400 | loss 0.0082 | dyn 0.0038 rew 0.0002 recon 0.0056 | align 0.0001 cycle 0.0002 ground 0.0001
+step   500 | loss 0.0164 | dyn 0.0042 rew 0.0079 recon 0.0058 | align 0.0001 cycle 0.0001 ground 0.0001
+step   600 | loss 0.0073 | dyn 0.0036 rew 0.0003 recon 0.0045 | align 0.0001 cycle 0.0001 ground 0.0001
+step   700 | loss 0.0232 | dyn 0.0040 rew 0.0159 recon 0.0041 | align 0.0001 cycle 0.0001 ground 0.0001
+step   800 | loss 0.0071 | dyn 0.0042 rew 0.0001 recon 0.0031 | align 0.0002 cycle 0.0001 ground 0.0001
+step   900 | loss 0.0153 | dyn 0.0052 rew 0.0079 recon 0.0016 | align 0.0001 cycle 0.0002 ground 0.0002
+
+=== METRICS ===
+{
+  "score": 0.20140000000000002,
+  "success_rate_guided": 0.5,
+  "success_rate_unguided": 0.18,
+  "guidance_gain": 0.32,
+  "avg_steps_guided": 29.86,
+  "avg_steps_unguided": 42.1,
+  "avg_reward_guided": 0.2063999999999999,
+  "align_cosine_heldout": 0.9998855590820312,
+  "final_loss": 0.015224060975015163,
+  "wall_time_sec": 466.01
+}
+
+primary score = 0.2014  ->  runs/trial_0053/metrics.json
+step     0 | loss 0.0156 | dyn 0.0015 rew 0.0036 recon 0.0154 | align 1.0069 cycle 0.0025 ground 0.0028
+step   250 | loss 0.0117 | dyn 0.0005 rew 0.0079 recon 0.0048 | align 1.0286 cycle 0.0033 ground 0.0036
+step   500 | loss 0.0090 | dyn 0.0005 rew 0.0080 recon 0.0005 | align 1.0219 cycle 0.0032 ground 0.0035
+step   750 | loss 0.0005 | dyn 0.0003 rew 0.0000 recon 0.0000 | align 1.0335 cycle 0.0029 ground 0.0033
+step  1000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0223 cycle 0.0027 ground 0.0031
+step  1250 | loss 0.0160 | dyn 0.0004 rew 0.0155 recon 0.0000 | align 1.0399 cycle 0.0026 ground 0.0030
+step  1500 | loss 0.0240 | dyn 0.0004 rew 0.0234 recon 0.0000 | align 1.0330 cycle 0.0025 ground 0.0029
+step  1750 | loss 0.0089 | dyn 0.0006 rew 0.0080 recon 0.0001 | align 1.0467 cycle 0.0032 ground 0.0036
+step  2000 | loss 0.0086 | dyn 0.0004 rew 0.0080 recon 0.0000 | align 1.0357 cycle 0.0027 ground 0.0031
+step  2250 | loss 0.0009 | dyn 0.0005 rew 0.0002 recon 0.0000 | align 1.0385 cycle 0.0028 ground 0.0031
+
+=== METRICS ===
+{
+  "score": -0.303,
+  "success_rate_guided": 0.14,
+  "success_rate_unguided": 0.12,
+  "guidance_gain": 0.020000000000000018,
+  "avg_steps_guided": 44.3,
+  "avg_steps_unguided": 44.42,
+  "avg_reward_guided": -0.3016000000000002,
+  "align_cosine_heldout": -0.03974786028265953,
+  "final_loss": 0.017006557434797287,
+  "wall_time_sec": 39.29
+}
+
+primary score = -0.3030  ->  runs/trial_0054_control/metrics.json
