@@ -1,27 +1,28 @@
 # The architecture-search space. This is what the continuous loop (Arbor, or the
 # built-in random_search.py) is allowed to mutate. Maximize metrics["score"].
 #
-# Each entry: a config dotted-key -> a set/range of candidate values.
+# Ranges refined 2026-07-02 from the first 65 trials + base.yaml (guide_weight=5.0
+# was OUTSIDE the old [0,4] range). Concentrated on the promising region; the
+# align=0 control group is preserved for the science.
 objective:
-  metric: score          # key in metrics.json
+  metric: score
   direction: maximize
 
 knobs:
-  loss.align:      {type: float, low: 0.0, high: 1.0}      # 0 = ablate the bridge
-  loss.cycle:      {type: float, low: 0.0, high: 0.5}
-  loss.ground:     {type: float, low: 0.0, high: 2.0}
-  loss.recon:      {type: float, low: 0.0, high: 2.0}
-  loss.dyn:        {type: float, low: 0.5, high: 2.0}
-  model.latent_dim: {type: choice, values: [32, 64, 96, 128]}
-  model.lang_dim:  {type: choice, values: [64, 128, 256]}
-  model.hidden:    {type: choice, values: [64, 128, 256]}
-  control.horizon: {type: choice, values: [3, 5, 6, 8, 10]}
-  control.guide_weight: {type: float, low: 0.0, high: 4.0}
-  train.lr:        {type: float, low: 0.0003, high: 0.003}
-  train.steps:     {type: choice, values: [1000, 1500, 2500]}
+  loss.align:       {type: float, low: 0.3, high: 1.0}
+  loss.cycle:       {type: float, low: 0.0, high: 0.5}
+  loss.ground:      {type: float, low: 0.3, high: 2.0}
+  loss.recon:       {type: float, low: 0.2, high: 1.6}
+  loss.dyn:         {type: float, low: 0.8, high: 2.0}
+  model.latent_dim: {type: choice, values: [64, 96, 128]}
+  model.lang_dim:   {type: choice, values: [128, 256]}
+  model.hidden:     {type: choice, values: [128, 256]}
+  control.horizon:  {type: choice, values: [6, 8, 10]}
+  control.guide_weight: {type: float, low: 2.0, high: 8.0}
+  control.n_samples: {type: choice, values: [512, 768, 1024]}
+  train.lr:         {type: float, low: 0.0004, high: 0.0025}
+  train.steps:      {type: choice, values: [1500, 2500, 3000]}
 
-# Scientific guardrail: always keep an align=0 run in each generation as the
-# control group, so "the bridge helps" is measured, not assumed.
 controls:
   - name: no_bridge_ablation
     set: {loss.align: 0.0, loss.cycle: 0.0, loss.ground: 0.0, control.guide_weight: 0.0}
