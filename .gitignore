@@ -30,3 +30,13 @@ Thumbs.db
 
 # Personal day data (real life)
 mydata/today.yaml
+
+# OSINT / security tools (not part of LatentBridge)
+PhoneInfoga/
+crypto/
+recon-ng/
+theHarvester/
+references/
+
+# Search logs
+loop/search_*.log
