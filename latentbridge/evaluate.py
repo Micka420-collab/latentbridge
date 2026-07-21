@@ -46,6 +46,11 @@ def evaluate(modules, cfg, device="cpu"):
                          n_samples=cfg["control"]["n_samples"],
                          gamma=cfg["control"]["gamma"],
                          guide_weight=cfg["control"]["guide_weight"],
+                         optimizer=cfg["control"].get("optimizer", "shooting"),
+                         cem_iters=cfg["control"].get("cem_iters", 4),
+                         cem_elite_frac=cfg["control"].get("cem_elite_frac", 0.125),
+                         cem_alpha=cfg["control"].get("cem_alpha", 0.7),
+                         seed=cfg["seed"],
                          device=device)
 
     base = cfg["seed"] + 10_000   # held-out seeds disjoint from training

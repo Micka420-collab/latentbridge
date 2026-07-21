@@ -34,9 +34,14 @@ train:
 
 control:
   horizon: 5           # tuned (was 6)
-  n_samples: 256
+  n_samples: 256       # total imagined rollouts per act() — shared by both optimizers
   gamma: 0.95
   guide_weight: 3.561  # tuned (was 1.0)
+  optimizer: shooting  # shooting | cem (cross-entropy method, same rollout budget:
+                       # n_samples split across cem_iters refit iterations)
+  # cem_iters: 4
+  # cem_elite_frac: 0.125
+  # cem_alpha: 0.7
 
 planner:
   backend: mock          # mock | openrouter
