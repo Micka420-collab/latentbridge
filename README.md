@@ -77,10 +77,12 @@ scripts/         measure.py, wm_probe.py (drift), few-shot / in-context experime
 The MPC supports two trajectory optimizers (`control.optimizer`): `shooting`
 (uniform random shooting, the default) and `cem` (cross-entropy method at the
 same rollout budget — `n_samples` split across `cem_iters` refit iterations).
-Measured guidance: on small action spaces where uniform sampling already covers
-the sequence space densely (gridworld: 4^5 sequences vs 256 samples), shooting
-is the better default; CEM is the lever to reach for when `actions^horizon`
-dwarfs the budget.
+Measured guidance (3 seeds, equal budget): shooting is the better default —
+CEM scores worse on gridworld (4^5 sequences vs 256 samples: uniform sampling
+already covers the space) and only matches shooting on desktopworld (11^6 vs
+512). CEM's measured win is confined to sharp rare-optimum landscapes (see
+`tests/test_cem.py`); on these learned reward surfaces concentration does not
+pay, so treat it as an opt-in experiment knob, not a recommendation.
 
 ## Highlights (reproduced by the benchmark)
 
