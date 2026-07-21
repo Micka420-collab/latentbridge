@@ -1,5 +1,6 @@
 # LatentBridge
 
+![CI](https://github.com/micka420-collab/latentbridge/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-CPU%20or%20CUDA-ee4c2c.svg)
@@ -52,7 +53,8 @@ solve the task — which makes the bridge's value directly measurable:
 ## Quick start
 
 ```bash
-pip install -r requirements.txt
+pip install -e ".[dev]"        # or: pip install -r requirements.txt
+pytest                         # fast test suite (~4s CPU) — envs, models, pipeline
 # one experiment (gridworld): trains, evaluates on held-out seeds, prints score
 python -m latentbridge.experiment --config configs/base.yaml
 # the full benchmark with the no-bridge control group:
