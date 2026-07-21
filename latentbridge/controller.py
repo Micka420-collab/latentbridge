@@ -30,6 +30,10 @@ class MPCController:
         self.guide_weight = guide_weight
         self.device = device
         self.n_actions = world_model.n_actions
+        # subgoal text -> target latent memo. The planner proposes the same
+        # goal at every step of an episode, so embedding + from_lang would
+        # otherwise be recomputed each act() call.
+        self._target_cache: dict[str, torch.Tensor] = {}
 
     @torch.no_grad()
     def act(self, obs: np.ndarray, env=None, guided: bool = False) -> int:
@@ -38,9 +42,15 @@ class MPCController:
         target_latent = None
         if guided and self.planner is not None and self.bridge is not None:
             sub = self.planner.propose(env)
-            emb = self.featurizer.embed(sub["subgoal_text"])
-            emb_t = torch.as_tensor(emb, dtype=torch.float32, device=self.device).unsqueeze(0)
-            target_latent = self.bridge.from_lang(emb_t)  # (1, D)
+            text = sub["subgoal_text"]
+            target_latent = self._target_cache.get(text)
+            if target_latent is None:
+                emb = self.featurizer.embed(text)
+                emb_t = torch.as_tensor(emb, dtype=torch.float32, device=self.device).unsqueeze(0)
+                target_latent = self.bridge.from_lang(emb_t)  # (1, D)
+                if len(self._target_cache) > 4096:
+                    self._target_cache.clear()
+                self._target_cache[text] = target_latent
 
         # random shooting: sample action sequences, roll out, score
         K, H = self.n_samples, self.horizon

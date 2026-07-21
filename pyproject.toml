@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "latentbridge"
+version = "0.1.0"
+description = "Couple a frozen LLM to a trained world model through a learned latent bridge, and plan inside the world model toward a goal given in language."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24",
+    "pyyaml>=6.0",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+# real frozen-LLM planner via OpenRouter (otherwise the offline "mock" backend is used)
+llm = ["openai>=1.0", "python-dotenv>=1.0"]
+# public MiniGrid benchmark env (configs/minigrid.yaml)
+minigrid = ["gymnasium>=0.29", "minigrid>=2.3"]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["latentbridge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

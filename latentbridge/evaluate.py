@@ -71,13 +71,16 @@ def evaluate(modules, cfg, device="cpu"):
 
 @torch.no_grad()
 def _alignment_cosine(enc, bridge, feat, cfg, device, seeds):
+    # dedicated RNG: the metric must not depend on the global np.random state
+    # (which varies with whatever ran before evaluate was called)
+    rng = np.random.default_rng(cfg["seed"] + 30_000)
     texts, obss = [], []
     for s in seeds[: min(len(seeds), 64)]:
         env = make_env(cfg, seed=s)
         obs = env.reset(seed=s)
         for _ in range(3):
             texts.append(env.text_state()); obss.append(obs)
-            obs, _, done, _ = env.step(np.random.randint(0, env.action_space))
+            obs, _, done, _ = env.step(int(rng.integers(0, env.action_space)))
             if done:
                 break
     z = enc(torch.as_tensor(np.asarray(obss, dtype=np.float32), device=device))

@@ -24,12 +24,20 @@ class HashingTextFeaturizer:
     def __init__(self, dim: int = 128, seed: int = 0):
         self.dim = int(dim)
         self.seed = int(seed)
+        # token -> vector memo: the sha256 + RNG expansion is deterministic per
+        # token, and embed_batch calls it for every token occurrence over
+        # thousands of near-identical state descriptions.
+        self._cache: dict[str, np.ndarray] = {}
 
     def _token_vec(self, tok: str) -> np.ndarray:
-        h = hashlib.sha256(f"{self.seed}:{tok}".encode()).digest()
-        # expand the digest deterministically to dim floats in [-1, 1]
-        rng = np.random.default_rng(int.from_bytes(h[:8], "little"))
-        return rng.standard_normal(self.dim).astype(np.float32)
+        v = self._cache.get(tok)
+        if v is None:
+            h = hashlib.sha256(f"{self.seed}:{tok}".encode()).digest()
+            # expand the digest deterministically to dim floats in [-1, 1]
+            rng = np.random.default_rng(int.from_bytes(h[:8], "little"))
+            v = rng.standard_normal(self.dim).astype(np.float32)
+            self._cache[tok] = v
+        return v
 
     def embed(self, text: str) -> np.ndarray:
         toks = _TOKEN.findall(text.lower())

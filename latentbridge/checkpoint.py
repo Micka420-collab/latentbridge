@@ -25,7 +25,9 @@ def save(path, modules, cfg, obs_dim, n_actions):
 
 
 def load(path, device="cpu"):
-    ckpt = torch.load(path, map_location=device, weights_only=False)
+    # checkpoints only contain tensors + plain YAML-derived config types, so the
+    # safe weights_only loader is enough (no arbitrary pickle execution).
+    ckpt = torch.load(path, map_location=device, weights_only=True)
     m = make_models(ckpt["cfg"], ckpt["obs_dim"], ckpt["n_actions"], device)
     m["encoder"].load_state_dict(ckpt["encoder"])
     m["decoder"].load_state_dict(ckpt["decoder"])

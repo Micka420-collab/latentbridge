@@ -25,6 +25,10 @@ class Planner:
         self.size = size  # kept for backward compat / gridworld
         self.model = model or os.environ.get("PLANNER_MODEL", "google/gemma-4-31b-it:free")
         self._client = None
+        # instruction text -> goal key memo. The controller asks for a proposal
+        # at EVERY env step; at temperature 0 the classification of a given
+        # instruction is deterministic, so one API call per goal is enough.
+        self._classify_cache: dict[str, str | None] = {}
         if backend == "openrouter":
             self._init_client()
 
@@ -57,6 +61,8 @@ class Planner:
     def _classify_llm(self, env, intention=None):
         menu = env.goal_menu()
         text = intention or env.goal_instruction()
+        if text in self._classify_cache:
+            return self._classify_cache[text]
         options = "\n".join(f"- {k}: {desc}" for k, desc in menu)
         prompt = (
             f"User says: \"{text}\"\n\n"
@@ -72,7 +78,9 @@ class Planner:
             out = (resp.choices[0].message.content or "").strip().lower()
             for k, _ in menu:
                 if k in out:
+                    self._classify_cache[text] = k
                     return k
         except Exception as e:
             print(f"[planner] llm classify failed ({e}); using mock goal")
+        # not cached: a transient failure should not pin this instruction to mock
         return None
