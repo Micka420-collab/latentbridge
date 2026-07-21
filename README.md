@@ -74,6 +74,14 @@ benchmark/       reproducible benchmark + results
 scripts/         measure.py, wm_probe.py (drift), few-shot / in-context experiments
 ```
 
+The MPC supports two trajectory optimizers (`control.optimizer`): `shooting`
+(uniform random shooting, the default) and `cem` (cross-entropy method at the
+same rollout budget — `n_samples` split across `cem_iters` refit iterations).
+Measured guidance: on small action spaces where uniform sampling already covers
+the sequence space densely (gridworld: 4^5 sequences vs 256 samples), shooting
+is the better default; CEM is the lever to reach for when `actions^horizon`
+dwarfs the budget.
+
 ## Highlights (reproduced by the benchmark)
 
 - The bridge **transfers across worlds** — the same architecture solves gridworld,
