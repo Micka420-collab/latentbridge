@@ -17,6 +17,8 @@ knobs:
   model.hidden:    {type: choice, values: [64, 128, 256]}
   control.horizon: {type: choice, values: [3, 5, 6, 8, 10]}
   control.guide_weight: {type: float, low: 0.0, high: 4.0}
+  control.revisit_weight: {type: float, low: 0.0, high: 2.0}   # 0 = off (historical)
+  model.text_ngram: {type: choice, values: [1, 2]}             # 1 = bag-of-tokens (historical)
   train.lr:        {type: float, low: 0.0003, high: 0.003}
   train.steps:     {type: choice, values: [1000, 1500, 2500]}
 

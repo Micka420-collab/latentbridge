@@ -18,6 +18,8 @@ Two trajectory optimizers, selected by cfg.control.optimizer:
 """
 from __future__ import annotations
 
+import collections
+
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -29,6 +31,7 @@ class MPCController:
                  gamma: float = 0.95, guide_weight: float = 1.0,
                  optimizer: str = "shooting", cem_iters: int = 4,
                  cem_elite_frac: float = 0.125, cem_alpha: float = 0.7,
+                 revisit_weight: float = 0.0, revisit_mem: int = 6,
                  seed: int = 0, device="cpu"):
         if optimizer not in ("shooting", "cem"):
             raise ValueError(f"unknown control optimizer: {optimizer}")
@@ -45,6 +48,13 @@ class MPCController:
         self.cem_iters = int(cem_iters)
         self.cem_elite_frac = float(cem_elite_frac)
         self.cem_alpha = float(cem_alpha)
+        # Anti-cycling: guided failures are near-goal 2-cycles (the replanned
+        # argmax flips forever where the guidance field is locally flat), so a
+        # short memory of VISITED latents repels imagined rollouts from recently
+        # occupied states. Guided-only; 0.0 = exact previous behavior.
+        self.revisit_weight = float(revisit_weight)
+        self.revisit_mem = int(revisit_mem)
+        self._visited: collections.deque = collections.deque(maxlen=self.revisit_mem)
         self.device = device
         self.n_actions = world_model.n_actions
         # controller-owned RNG: action sampling must not depend on (or disturb)
@@ -59,6 +69,8 @@ class MPCController:
     @torch.no_grad()
     def act(self, obs: np.ndarray, env=None, guided: bool = False) -> int:
         z0 = self.encoder(torch.as_tensor(obs, dtype=torch.float32, device=self.device).unsqueeze(0))
+        if env is not None and getattr(env, "t", None) == 0:
+            self._visited.clear()   # fresh episode -> fresh revisit memory
 
         target_latent = None
         if guided and self.planner is not None and self.bridge is not None:
@@ -73,6 +85,9 @@ class MPCController:
                     self._target_cache.clear()
                 self._target_cache[text] = target_latent
 
+        if guided and self.revisit_weight > 0:
+            self._visited.append(z0.squeeze(0))
+
         if self.optimizer == "cem":
             return self._plan_cem(z0, target_latent)
         return self._plan_shooting(z0, target_latent)
@@ -83,11 +98,15 @@ class MPCController:
         """Imagined discounted return of each action sequence (K, H) -> (K,).
         When a target latent is given, a dense discounted distance-to-goal
         shaping steers the whole rollout toward the LLM-imagined goal (the
-        bridge's contribution to control)."""
+        bridge's contribution to control), and (when revisit_weight > 0) a
+        proximity penalty to recently-visited latents breaks replanning cycles."""
         K, H = actions.shape
         z_cur = z0.expand(K, -1).contiguous()
         recurrent = hasattr(self.world_model, "init_state")
         g = self.world_model.init_state(K, self.device) if recurrent else None
+        M = (torch.stack(list(self._visited))
+             if (target_latent is not None and self.revisit_weight > 0
+                 and self._visited) else None)
         total_r = torch.zeros(K, device=self.device)
         for t in range(H):
             if recurrent:
@@ -98,6 +117,14 @@ class MPCController:
             if target_latent is not None:
                 dist = ((z_cur - target_latent) ** 2).mean(-1)
                 total_r -= self.guide_weight * (self.gamma ** t) * dist
+                if M is not None:
+                    # self-scaling proximity to recently visited latents: the
+                    # d2.mean()/dist.mean() normalizations make one weight
+                    # transfer across envs and latent scales
+                    d2 = ((z_cur.unsqueeze(1) - M.unsqueeze(0)) ** 2).mean(-1)
+                    prox = torch.exp(-d2 / (d2.mean() + 1e-8)).max(1).values
+                    total_r -= (self.revisit_weight * self.guide_weight
+                                * (self.gamma ** t) * prox * dist.mean())
         return total_r
 
     def _plan_shooting(self, z0, target_latent) -> int:

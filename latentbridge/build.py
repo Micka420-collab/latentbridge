@@ -31,5 +31,6 @@ def make_models(cfg, obs_dim, n_actions, device="cpu"):
         "decoder": dec,
         "world_model": wm,
         "bridge": LatentBridge(ld, lg, h).to(device),
-        "featurizer": HashingTextFeaturizer(dim=lg, seed=cfg["seed"]),
+        "featurizer": HashingTextFeaturizer(dim=lg, seed=cfg["seed"],
+                                            ngram=cfg["model"].get("text_ngram", 1)),
     }

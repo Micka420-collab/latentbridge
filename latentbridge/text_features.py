@@ -21,9 +21,18 @@ _TOKEN = re.compile(r"[a-z0-9]+")
 
 
 class HashingTextFeaturizer:
-    def __init__(self, dim: int = 128, seed: int = 0):
+    """ngram=1 is the historical bag-of-tokens. ngram=2 additionally hashes
+    adjacent-token bigrams, making the space ORDER-AWARE: with unigrams alone,
+    "row 2 col 3" and "row 3 col 2" embed bit-identically (same token multiset),
+    so the bridge is trained toward two different states at once. Bigrams
+    ("row_2", "2_col", "col_3") break that aliasing while staying deterministic
+    and offline — and are a more faithful stand-in for real (order-aware) LLM
+    embeddings at this swap point."""
+
+    def __init__(self, dim: int = 128, seed: int = 0, ngram: int = 1):
         self.dim = int(dim)
         self.seed = int(seed)
+        self.ngram = int(ngram)
         # token -> vector memo: the sha256 + RNG expansion is deterministic per
         # token, and embed_batch calls it for every token occurrence over
         # thousands of near-identical state descriptions.
@@ -43,7 +52,10 @@ class HashingTextFeaturizer:
         toks = _TOKEN.findall(text.lower())
         if not toks:
             return np.zeros(self.dim, dtype=np.float32)
-        v = np.mean([self._token_vec(t) for t in toks], axis=0)
+        feats = list(toks)
+        if self.ngram >= 2:
+            feats += [f"{a}_{b}" for a, b in zip(toks, toks[1:])]
+        v = np.mean([self._token_vec(t) for t in feats], axis=0)
         n = np.linalg.norm(v)
         return v / n if n > 0 else v
 
