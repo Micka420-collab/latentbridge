@@ -140,15 +140,20 @@ class MPCController:
         pop = max(2, self.n_samples // self.cem_iters)   # equal total budget
         n_elite = max(1, int(round(pop * self.cem_elite_frac)))
         probs = torch.full((H, A), 1.0 / A, device=self.device)
-        best_seq, best_score = None, -float("inf")
+        # Elitism: the incumbent best is re-scored INSIDE each iteration's batch,
+        # so sequences are only ever compared under one scoring context. (The
+        # revisit penalty normalizes by batch statistics, making raw scores
+        # incomparable across iterations; with batch-independent scoring this
+        # is exactly equivalent to tracking the global best.)
+        best_seq = None
         for _ in range(self.cem_iters):
             actions = torch.multinomial(probs, pop, replacement=True,
                                         generator=self._gen).T.contiguous()  # (pop, H)
+            if best_seq is not None:
+                actions = torch.cat([best_seq.unsqueeze(0), actions])
             scores = self._score(z0, actions, target_latent)
             elite_idx = torch.topk(scores, n_elite).indices
-            if float(scores[elite_idx[0]]) > best_score:
-                best_score = float(scores[elite_idx[0]])
-                best_seq = actions[elite_idx[0]].clone()
+            best_seq = actions[elite_idx[0]].clone()   # best of the CURRENT batch
             elite_freq = F.one_hot(actions[elite_idx], A).float().mean(0)  # (H, A)
             probs = self.cem_alpha * elite_freq + (1.0 - self.cem_alpha) * probs
             # keep every action reachable so the distribution can recover
