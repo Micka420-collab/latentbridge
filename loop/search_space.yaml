@@ -21,6 +21,7 @@ knobs:
   model.text_ngram: {type: choice, values: [1, 2]}             # 1 = bag-of-tokens (historical)
   train.lr:        {type: float, low: 0.0003, high: 0.003}
   train.steps:     {type: choice, values: [1000, 1500, 2500]}
+  train.multistep_k: {type: choice, values: [1, 3, 5]}         # 1 = historical 1-step dyn loss
 
 # Scientific guardrail: always keep an align=0 run in each generation as the
 # control group, so "the bridge helps" is measured, not assumed.
