@@ -6,13 +6,15 @@ knowledge about the user) can be rebuilt identically in a new body (env/robot).
 from __future__ import annotations
 
 from .models import Encoder, Decoder, WorldModel, RecurrentWorldModel, LatentBridge
-from .text_features import HashingTextFeaturizer
+from .text_features import make_featurizer
 
 
 def make_models(cfg, obs_dim, n_actions, device="cpu"):
     ld = cfg["model"]["latent_dim"]
-    lg = cfg["model"]["lang_dim"]
     h = cfg["model"]["hidden"]
+    # the featurizer defines the language space; the bridge's lang side must
+    # match ITS dim (== model.lang_dim for hashing, the ST model's dim otherwise)
+    feat = make_featurizer(cfg)
     img = cfg["model"].get("obs_image_shape")   # [C,H,W] -> use a CNN (vision)
     if img:
         from .models.vision import ConvEncoder, ConvDecoder
@@ -30,7 +32,6 @@ def make_models(cfg, obs_dim, n_actions, device="cpu"):
         "encoder": enc,
         "decoder": dec,
         "world_model": wm,
-        "bridge": LatentBridge(ld, lg, h).to(device),
-        "featurizer": HashingTextFeaturizer(dim=lg, seed=cfg["seed"],
-                                            ngram=cfg["model"].get("text_ngram", 1)),
+        "bridge": LatentBridge(ld, feat.dim, h).to(device),
+        "featurizer": feat,
     }
