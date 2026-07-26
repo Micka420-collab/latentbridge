@@ -20,6 +20,8 @@ dependencies = [
 llm = ["openai>=1.0", "python-dotenv>=1.0"]
 # public MiniGrid benchmark env (configs/minigrid.yaml)
 minigrid = ["gymnasium>=0.29", "minigrid>=2.3"]
+# real language embeddings at the swap point (model.text_features: stransformer)
+embeddings = ["sentence-transformers>=2.2"]
 dev = ["pytest>=8.0"]
 
 [tool.setuptools.packages.find]

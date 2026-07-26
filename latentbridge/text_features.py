@@ -61,3 +61,61 @@ class HashingTextFeaturizer:
 
     def embed_batch(self, texts) -> np.ndarray:
         return np.stack([self.embed(t) for t in texts], axis=0)
+
+
+class SentenceTransformerFeaturizer:
+    """REAL language embeddings at the swap point (model.text_features:
+    stransformer). Unlike the hashing stand-in, these are paraphrase-robust:
+    "Reach row 2 col 3" and "the agent should end up at row 2, column 3" land
+    close together, so a frozen LLM can phrase goals freely instead of having
+    to emit the env's canonical text.
+
+    The embedding model is FROZEN (never trained) — it plays the same role as
+    the frozen LLM: a fixed semantic space the bridge learns to align to.
+    Embeddings are cached by exact text; the built-in envs have a small set of
+    distinct state texts, so training cost is one batch-encode per unique text.
+    """
+
+    def __init__(self, model_name: str = "sentence-transformers/paraphrase-MiniLM-L3-v2",
+                 device: str = "cpu"):
+        from sentence_transformers import SentenceTransformer  # optional dep
+        self.model_name = model_name
+        self.model = SentenceTransformer(model_name, device=device)
+        get_dim = getattr(self.model, "get_embedding_dimension",
+                          self.model.get_sentence_embedding_dimension)
+        self.dim = int(get_dim())
+        self._cache: dict[str, np.ndarray] = {}
+
+    def _encode(self, texts: list[str]) -> np.ndarray:
+        out = self.model.encode(texts, convert_to_numpy=True,
+                                normalize_embeddings=True, show_progress_bar=False)
+        return out.astype(np.float32)
+
+    def embed(self, text: str) -> np.ndarray:
+        v = self._cache.get(text)
+        if v is None:
+            v = self._encode([text])[0]
+            self._cache[text] = v
+        return v
+
+    def embed_batch(self, texts) -> np.ndarray:
+        missing = sorted({t for t in texts if t not in self._cache})
+        if missing:
+            for t, v in zip(missing, self._encode(missing)):
+                self._cache[t] = v
+        return np.stack([self._cache[t] for t in texts], axis=0)
+
+
+def make_featurizer(cfg):
+    """Featurizer factory (the swap point). cfg['model']['text_features']:
+    'hashing' (default, offline) or 'stransformer' (real embeddings; the
+    bridge's lang side must then use the featurizer's dim, not lang_dim)."""
+    m = cfg["model"]
+    backend = m.get("text_features", "hashing")
+    if backend == "stransformer":
+        return SentenceTransformerFeaturizer(
+            model_name=m.get("st_model", "sentence-transformers/paraphrase-MiniLM-L3-v2"))
+    if backend == "hashing":
+        return HashingTextFeaturizer(dim=m["lang_dim"], seed=cfg["seed"],
+                                     ngram=m.get("text_ngram", 1))
+    raise ValueError(f"unknown text_features backend: {backend}")
