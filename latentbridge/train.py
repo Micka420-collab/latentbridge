@@ -97,11 +97,17 @@ def train(cfg, device="cpu", verbose=True):
     history = []
     rng = np.random.default_rng(cfg["seed"])
     recurrent = cfg["model"].get("dynamics") == "rssm"
+    # train.multistep_k >= 2 turns on free-running K-step consistency training
+    # for the FEEDFORWARD model too (the same regime the rssm branch always
+    # uses): the model must predict K steps from its own outputs, which is
+    # exactly what MPC asks of it at plan time. Default 1 = historical 1-step.
+    multistep_k = int(cfg["train"].get("multistep_k", 1))
+    seq_train = recurrent or multistep_k > 1
 
-    if recurrent:
-        # multi-step (free-running) dynamics training for the recurrent world
-        # model; per-obs losses (recon/align/cycle/ground) stay identical.
-        L = int(cfg["train"].get("seq_len", 6))
+    if seq_train:
+        # multi-step (free-running) dynamics training; per-obs losses
+        # (recon/align/cycle/ground) stay identical.
+        L = int(cfg["train"].get("seq_len", 6)) if recurrent else multistep_k
         Os, As, Rs = collect_sequences(cfg, L)
         Os = torch.as_tensor(Os, device=device)            # (N, L+1, obs_dim)
         As = torch.as_tensor(As, device=device)            # (N, L)
@@ -116,18 +122,21 @@ def train(cfg, device="cpu", verbose=True):
         L_cycle = bridge.cycle_loss(z)
         L_ground = torch.nn.functional.mse_loss(bridge.from_lang(lang[idx]), z.detach())
 
-        if recurrent:
+        if seq_train:
             sidx = torch.as_tensor(rng.integers(0, nseq, size=min(bs, nseq)), device=device)
             ob, ac, rw = Os[sidx], As[sidx], Rs[sidx]      # (B,L+1,od),(B,L),(B,L)
             B = ob.shape[0]
             with torch.no_grad():
                 z_tgt = enc(ob.reshape(-1, obs_dim)).reshape(B, L + 1, -1)
             z_pred = enc(ob[:, 0])
-            g = wm.init_state(B, device)
+            g = wm.init_state(B, device) if recurrent else None
             L_dyn = z_pred.new_zeros(())
             L_rew = z_pred.new_zeros(())
             for t in range(L):
-                z_pred, r_pred, g = wm(z_pred, ac[:, t], g)
+                if recurrent:
+                    z_pred, r_pred, g = wm(z_pred, ac[:, t], g)
+                else:
+                    z_pred, r_pred = wm(z_pred, ac[:, t])
                 L_dyn = L_dyn + torch.nn.functional.mse_loss(z_pred, z_tgt[:, t + 1])
                 L_rew = L_rew + torch.nn.functional.mse_loss(r_pred, rw[:, t])
             L_dyn = L_dyn / L
