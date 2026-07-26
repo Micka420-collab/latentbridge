@@ -14,6 +14,8 @@ model:                 # tuned (Level-1 search)
   latent_dim: 64
   lang_dim: 128
   hidden: 128
+  text_ngram: 2        # measured (5 seeds): score 0.855±0.078 -> 0.953±0.018 with
+                       # control.revisit_weight=1.0 (guided 0.900 -> 0.987, variance /4)
 
 loss:                  # tuned weights
   dyn: 1.257
@@ -34,6 +36,7 @@ control:
   n_samples: 512
   gamma: 0.95
   guide_weight: 3.171  # tuned
+  revisit_weight: 1.0  # see model.text_ngram note (measured together)
 
 planner:
   backend: mock
