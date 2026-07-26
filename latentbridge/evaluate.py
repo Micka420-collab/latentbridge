@@ -50,6 +50,8 @@ def evaluate(modules, cfg, device="cpu"):
                          cem_iters=cfg["control"].get("cem_iters", 4),
                          cem_elite_frac=cfg["control"].get("cem_elite_frac", 0.125),
                          cem_alpha=cfg["control"].get("cem_alpha", 0.7),
+                         revisit_weight=cfg["control"].get("revisit_weight", 0.0),
+                         revisit_mem=cfg["control"].get("revisit_mem", 6),
                          seed=cfg["seed"],
                          device=device)
 

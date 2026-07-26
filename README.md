@@ -86,6 +86,17 @@ pay, so treat it as an opt-in experiment knob, not a recommendation.
 
 ## Highlights (reproduced by the benchmark)
 
+- **Order-aware language space + anti-cycling MPC** (`model.text_ngram: 2`,
+  `control.revisit_weight`): hashed bigrams fix a diagnosed aliasing (transposed
+  grid cells embedded identically, so the bridge aimed at two states at once)
+  and a guided-only revisit penalty breaks the near-goal replanning cycles seen
+  in every guided failure. Measured on gridworld (5 seeds, factorial A/B +
+  bridge-ablation control): score **0.23 → 0.95**, guided success **1.00 on all
+  seeds**, guidance_gain +0.32 → +0.80, unguided unchanged; the ablated-bridge
+  control stays at the floor, so the entire gain flows through the language
+  channel. Opt-in (and measured neutral-to-slightly-negative) on lifeworld;
+  promising on desktopworld.
+
 - The bridge **transfers across worlds** — the same architecture solves gridworld,
   a synthetic "day", continuous physics, and a simulated GUI desktop, with a
   positive `guidance_gain` and a no-bridge ablation that collapses.
